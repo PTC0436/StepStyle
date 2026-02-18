@@ -324,10 +324,10 @@ function renderProductCard(data, className) {
   ).toFixed(0);
 
   return `
-    <div class="${className}"data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-out" dat-aos-delay="500" data-aos-offset="0" data-aos-once="true">
+    <div class="${className}">
       <div class="prod__card">
         <div class="prod__thumb">
-          <a href=${PRODUCT_DOMAIN + "#/" + data.id}><img src=${data.thumbnail} alt="${data.name}"/></a>
+          <a href=${PRODUCT_DOMAIN + "#/" + data.id}><img src=${data.thumbnail} alt="${data.name}" loading="lazy"/></a>
           <div class="prod__badges">
             <span class='prod__badge prod__badge--hot'>HOT</span>
             ${discountPercentage < 0 ? `<span class='prod__badge prod__badge--sale'>${discountPercentage}%</span>` : ""}
