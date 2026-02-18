@@ -29,7 +29,7 @@ export async function renderProductHome(data) {
             ${renderProductHomeConstraint()}
             
             <div class="products__list">
-              <div class="row">
+              <div class="row justify-content-center">
                 ${data.map((item) => renderProductCard(item, "col-xxl-3 col-lg-4 col-md-4 col-6 gy-4")).join("") || renderNoProduct()}
               </div>
             </div>
@@ -370,6 +370,7 @@ export async function renderProductDetail() {
 			<div class="product">
         <div class="container-xl">
           ${renderProductDetailBreadcrumb(data.name)}
+          <button class="btn-back btn-back--text"><i class="ri-arrow-left-long-line"></i></button>
           <div class="product__wrapper">
             ${renderProductDetailMain(data)}
           </div>
@@ -727,7 +728,7 @@ async function renderProductDetailFamiliar(brand, excptID) {
 function renderProductDetailBreadcrumb(name) {
   return `
     <div aria-label="breadcrumb">
-      <ol class="breadcrumb">
+      <ol class="breadcrumb" style="margin-bottom: 5px; margin-left:0; padding-left:5px;">
         <li class="breadcrumb-item"><a href=${HOME_DOMAIN}>Home</a></li>
         <li class="breadcrumb-item"><a href=${PRODUCT_DOMAIN + "#/"}>Products</a></li>
         <li class="breadcrumb-item active" aria-current="page">${name}</li>
