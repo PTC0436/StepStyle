@@ -763,7 +763,11 @@
 
     <!--=============== AOS INIT ===============-->
     <script>
-      AOS.init();
+      AOS.init({
+        disable: function () {
+          return window.innerWidth < 768;
+        },
+      });
     </script>
   </body>
 </html>
