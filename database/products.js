@@ -8,7 +8,8 @@ const products = [
     price: 2790000,
     salePrice: 2490000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1588361861040-ac9b1018f6d5",
+    thumbnail:
+      "https://images.unsplash.com/photo-1588361861040-ac9b1018f6d5?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1588361861040-ac9b1018f6d5",
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
@@ -56,7 +57,8 @@ const products = [
     price: 4590000,
     salePrice: 3990000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
+    thumbnail:
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1491553895911-0055eca6402d",
       "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
@@ -105,7 +107,8 @@ const products = [
     price: 1890000,
     salePrice: 1690000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1597045566677-8cf032ed6634",
+    thumbnail:
+      "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1597045566677-8cf032ed6634",
       "https://images.unsplash.com/photo-1608231387042-66d1773070a5",
@@ -153,7 +156,8 @@ const products = [
     price: 2990000,
     salePrice: 2590000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb",
+    thumbnail:
+      "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb",
       "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
@@ -202,7 +206,7 @@ const products = [
     salePrice: 2890000,
     currency: "VND",
     thumbnail:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1552346154-21d32810aba3",
@@ -251,7 +255,7 @@ const products = [
     salePrice: 3290000,
     currency: "VND",
     thumbnail:
-      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
@@ -300,7 +304,8 @@ const products = [
     price: 2490000,
     salePrice: 2190000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1584735175097-719d848f8449",
+    thumbnail:
+      "https://images.unsplash.com/photo-1584735175097-719d848f8449?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1597045566677-8cf032ed6634",
       "https://images.unsplash.com/photo-1584735175097-719d848f8449",
@@ -348,7 +353,8 @@ const products = [
     price: 2590000,
     salePrice: 2290000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+    thumbnail:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
       "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb",
@@ -396,7 +402,8 @@ const products = [
     price: 2790000,
     salePrice: 2590000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1549298916-b41d501d3772",
+    thumbnail:
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1549298916-b41d501d3772",
       "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
@@ -444,7 +451,8 @@ const products = [
     price: 2590000,
     salePrice: 2390000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
+    thumbnail:
+      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
       "https://images.unsplash.com/photo-1588361861040-ac9b1018f6d5",
@@ -493,7 +501,8 @@ const products = [
     price: 1590000,
     salePrice: 1390000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
+    thumbnail:
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
       "https://images.unsplash.com/photo-1519741497674-611481863552",
@@ -542,7 +551,8 @@ const products = [
     price: 1490000,
     salePrice: 1290000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1597248881519-db089d3744a5",
+    thumbnail:
+      "https://images.unsplash.com/photo-1597248881519-db089d3744a5?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1597248881519-db089d3744a5",
       "https://images.unsplash.com/photo-1575537302964-96cd47c06b1b",
@@ -590,7 +600,8 @@ const products = [
     price: 3890000,
     salePrice: 3590000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6",
+    thumbnail:
+      "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6",
       "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb",
@@ -638,7 +649,8 @@ const products = [
     price: 2190000,
     salePrice: 1990000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1543508282-6319a3e2621f",
+    thumbnail:
+      "https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1543508282-6319a3e2621f",
       "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa",
@@ -686,7 +698,8 @@ const products = [
     price: 4990000,
     salePrice: 4590000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1560769629-975ec94e6a86",
+    thumbnail:
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1560769629-975ec94e6a86",
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
@@ -735,7 +748,8 @@ const products = [
     price: 4290000,
     salePrice: 3990000,
     currency: "VND",
-    thumbnail: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2",
+    thumbnail:
+      "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2",
       "https://images.unsplash.com/photo-1560769629-975ec94e6a86",
@@ -783,7 +797,7 @@ const products = [
     salePrice: 2090000,
     currency: "VND",
     thumbnail:
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
+      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?w=400&auto=compress&cs=tinysrgb",
     images: [
       "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
       "https://images.pexels.com/photos/2529147/pexels-photo-2529147.jpeg",
@@ -833,7 +847,7 @@ const products = [
     salePrice: 4290000,
     currency: "VND",
     thumbnail:
-      "https://images.pexels.com/photos/292998/pexels-photo-292998.jpeg",
+      "https://images.pexels.com/photos/292998/pexels-photo-292998.jpeg?w=400&auto=compress&cs=tinysrgb",
     images: [
       "https://images.pexels.com/photos/292998/pexels-photo-292998.jpeg",
       "https://images.pexels.com/photos/292997/pexels-photo-292997.jpeg",
@@ -881,7 +895,7 @@ const products = [
     salePrice: 4390000,
     currency: "VND",
     thumbnail:
-      "https://images.pexels.com/photos/292993/pexels-photo-292993.jpeg",
+      "https://images.pexels.com/photos/292993/pexels-photo-292993.jpeg?w=400&auto=compress&cs=tinysrgb",
     images: [
       "https://images.pexels.com/photos/292993/pexels-photo-292993.jpeg",
       "https://images.pexels.com/photos/292992/pexels-photo-292992.jpeg",
@@ -937,7 +951,7 @@ const products = [
     salePrice: 2690000,
     currency: "VND",
     thumbnail:
-      "https://images.pexels.com/photos/292990/pexels-photo-292990.jpeg",
+      "https://images.pexels.com/photos/292990/pexels-photo-292990.jpeg?w=400&auto=compress&cs=tinysrgb",
     images: [
       "https://images.pexels.com/photos/292990/pexels-photo-292990.jpeg",
       "https://images.pexels.com/photos/292989/pexels-photo-292989.jpeg",
@@ -1085,7 +1099,7 @@ const products = [
     salePrice: 2790000,
     currency: "VND",
     thumbnail:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
     ],
@@ -1132,7 +1146,7 @@ const products = [
     salePrice: 3490000,
     currency: "VND",
     thumbnail:
-      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=400&auto=format&q=80",
     images: [
       "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=800&q=80",
     ],
