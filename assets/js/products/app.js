@@ -27,11 +27,7 @@ async function render() {
   });
   if (!html) {
     app.innerHTML = renderPageNotFound404();
-    AOS.init({
-      disable: function () {
-        return window.innerWidth < 768;
-      },
-    });
+    AOS.init();
 
     return;
   }
@@ -51,11 +47,7 @@ async function render() {
   }
 
   //<!--=============== AOS INIT ===============-->
-  AOS.init({
-    disable: function () {
-      return window.innerWidth < 768;
-    },
-  });
+  AOS.init();
 
   window.scrollTo({
     top: 0,
