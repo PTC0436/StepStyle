@@ -216,6 +216,7 @@ nav.nav.container-xl {
 }
 .nav__link--active {
   background: var(--black-color-light);
+  border-radius: 5px;
 }
 .nav__link-logo {
   font-size: 22px;
@@ -315,6 +316,7 @@ nav.nav.container-xl {
   }
   .nav__link:hover {
     background-color: var(--black-color-light);
+    border-radius: 5px;
   }
   .nav__link-logo {
     display: none;
