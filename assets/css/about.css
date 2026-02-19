@@ -1,0 +1,303 @@
+.tieude,
+.review-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px 0;
+  background: linear-gradient(to right, #ff85c1, #f5afaf, #f9dfdf, #fbefef);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0px 2px 2px rgba(240, 112, 204, 0.3));
+
+  animation: neon-blink 1.5s ease-in-out infinite;
+}
+body {
+  background: linear-gradient(to right, #fdf1f3, #ffffff, #fdf1f3);
+}
+
+.history,
+.vision,
+.giatri,
+.containerreview {
+  background-color: #f9dfdf;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.history {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 100px auto;
+  gap: 80px;
+}
+
+.history-text {
+  flex: 0 0 45%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.history-title {
+  font-size: 27px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.history-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.history-img {
+  flex: 0 0 40%;
+}
+
+.history-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+.slides {
+  width: 400px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.slides img.active {
+  display: block;
+}
+
+.vision {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 100px auto;
+  gap: 80px;
+  flex-direction: row-reverse;
+}
+.vision-text {
+  flex: 0 0 45%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.vision-title {
+  font-size: 27px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.vision-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.vision-img {
+  flex: 0 0 40%;
+}
+.vision-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+.slides2 {
+  width: 400px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides2 img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.slides2 img.active {
+  display: block;
+}
+/*giatri*/
+.giatri {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 100px auto;
+  gap: 80px;
+}
+
+.giatri-text {
+  flex: 0 0 45%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.giatri-title {
+  font-size: 27px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.giatri-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.giatri-img {
+  flex: 0 0 40%;
+}
+
+.giatri-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+.slides3 {
+  width: 400px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides3 img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.slides3 img.active {
+  display: block;
+}
+
+.review-section h2 {
+  font-size: 28px;
+  margin-bottom: 50px;
+  color: #b03060;
+}
+.review-1,
+.review-2,
+.review-3 {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.review-card {
+  background: white;
+  width: 420px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.review-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.review-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-weight: bold;
+  color: #b03060;
+}
+
+.stars {
+  color: #ffb400;
+}
+/*responsive*/
+@media (max-width: 992px) {
+  .history,
+  .vision,
+  .giatri,
+  .containerreview {
+    gap: 30px;
+  }
+
+  .tieude,
+  .review-title {
+    font-size: 28px;
+  }
+}
+@media (max-width: 768px) {
+  .history,
+  .vision,
+  .giatri,
+  .containerreview {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .history-text p,
+  .vision-text p,
+  .giatri-text p,
+  .containerreview p {
+    text-align: left;
+  }
+
+  .history-img img,
+  .vision-img img,
+  .giatri-img img,
+  .review-card {
+    border-radius: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .tieude,
+  .review-title {
+    font-size: 22px;
+  }
+
+  .history-text p,
+  .vision-text p,
+  .giatri-text p,
+  .containerreview p {
+    font-size: 14px;
+  }
+}
+.tenthuonghieu {
+  font-style: italic;
+}
+.review-card {
+  transition: 0.3s ease;
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
