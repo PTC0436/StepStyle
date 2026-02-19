@@ -140,6 +140,8 @@
   margin-top: 20px;
   /* justify-content: center; */
   margin-left: calc(100vw / 15);
+  position: relative;
+  z-index: 99;
 }
 
 .footer__social::before {
@@ -182,12 +184,13 @@
   color: var(--bg-light);
   font-weight: 900;
   font-size: min(calc(100vw / 8), 100% * 13);
-  margin-top: calc(-100vw / 25);
+  margin-top: -10px;
+  line-height: 1;
 }
 
 .footer__copyright {
   color: var(--bg-light);
-  margin-top: -30px;
+  margin-top: -20px;
 }
 
 @media (max-width: 350px) {

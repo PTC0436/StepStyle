@@ -45,3 +45,11 @@ document.addEventListener("click", () => {
   dropdownItems.forEach((item) => item.classList.remove("active"));
   subDropdownItems.forEach((item) => item.classList.remove("active"));
 });
+
+document.addEventListener("click", (e) => {
+  const subLink = e.target.closest(".dropdown__submenu li");
+  if (!subLink) return;
+  console.log(navMenu, navToggle);
+  navMenu.classList.remove("show-menu");
+  navToggle.classList.remove("show-icon");
+});

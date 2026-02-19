@@ -3,46 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--=============== FONTAWESOME ICONS ===============-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!--=============== GOOGLE ICONS ===============-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close,close_small,filter_alt,search,sync_alt"
-    />
+
+    <!--=============== SLICKJS CSS ===============-->
+    <link rel="stylesheet" href="/libs/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="/libs/slick-1.8.1/slick/slick-theme.css" />
+
     <!--=============== REMIXICONS ===============-->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <!--=============== SLICKJS CSS ===============-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-    />
-    <link rel="stylesheet" href="/libs/slick-1.8.1/slick/slick-theme.css" />
 
     <!--=============== AOS CSS ===============-->
     <link rel="stylesheet" href="/libs/aos/aos.css" />
 
+    <!--=============== SWEETALERT CSS ===============-->
+    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
+
     <!--=============== BOOTSTRAP5 CSS ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
+
     <!--=============== BASE CSS ===============-->
     <link rel="stylesheet" href="/assets/css/base.css" />
 
@@ -63,22 +43,20 @@
   </head>
 
   <body>
-    <!--=============== JQUERY ===============-->
-    <script src="/libs/jquery/jquery-3.7.1.min.js"></script>
     <!--=============== BOOTSTRAP5 JS ===============-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    <script src="/libs/bootstrap/dist/js/bootstrap.min.js" defer></script>
+
+    <!--=============== JQUERY ===============-->
+    <script src="/libs/jquery/jquery-3.7.1.min.js" defer></script>
+
     <!--=============== SLICKJS JS ===============-->
-    <script
-      type="text/javascript"
-      src="/libs/slick-1.8.1/slick/slick.min.js"
-    ></script>
+    <script src="/libs/slick-1.8.1/slick/slick.min.js" defer></script>
 
     <!--=============== AOS JS ===============-->
-    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/aos/aos.js" defer></script>
+
+    <!--=============== SWEETALERT2 JS ===============-->
+    <script src="/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!--=============== HEADER ===============-->
     <header
@@ -313,7 +291,7 @@
 
             <li>
               <a
-                href="#"
+                href="/pages/about.html"
                 class="nav__link"
                 data-aos="fade-down"
                 data-aos-delay="200"
@@ -339,7 +317,7 @@
             </li>
             <li>
               <a
-                href="#"
+                href="/pages/cart.html"
                 class="nav__link"
                 data-aos="fade-down"
                 data-aos-delay="400"
@@ -353,7 +331,7 @@
             </li>
             <li>
               <a
-                href="#"
+                href="/pages/login.html"
                 class="nav__link"
                 data-aos="fade-down"
                 data-aos-delay="500"
@@ -367,7 +345,7 @@
             </li>
             <li>
               <a
-                href="#"
+                href="/pages/register.html"
                 class="nav__link"
                 data-aos="fade-down"
                 data-aos-delay="600"
@@ -412,7 +390,7 @@
           >
             <div class="footer__brand">
               <div class="footer__brand-logo">
-                <img src="/assets/images/logo.png" alt="Stepstyle logo" />
+                <img src="/assets/images/logo.jpg" alt="Stepstyle logo" />
               </div>
 
               <div class="footer__contact">
@@ -463,7 +441,7 @@
             <div class="footer__card mt-5">
               <p class="footer__card-title">Thông tin</p>
               <a
-                href="index.html"
+                href="/index.html"
                 class="footer__link"
                 data-aos="fade-up"
                 data-aos-delay="300"
@@ -474,7 +452,7 @@
                 >Trang chủ</a
               >
               <a
-                href="about.html"
+                href="/pages/about.html"
                 class="footer__link"
                 data-aos="fade-up"
                 data-aos-delay="400"
@@ -485,7 +463,7 @@
                 >Giới thiệu</a
               >
               <a
-                href="contact.html"
+                href="/pages/contact.html"
                 class="footer__link"
                 data-aos="fade-up"
                 data-aos-delay="500"
@@ -511,7 +489,7 @@
             <div class="footer__card mt-5">
               <p class="footer__card-title">Mua sắm</p>
               <a
-                href="products.html"
+                href="/pages/products.html"
                 class="footer__link"
                 data-aos="fade-up"
                 data-aos-delay="400"
@@ -522,7 +500,7 @@
                 >Sản phẩm</a
               >
               <a
-                href="cart.html"
+                href="/pages/cart.html"
                 class="footer__link"
                 data-aos="fade-up"
                 data-aos-delay="500"
@@ -533,7 +511,7 @@
                 >Giỏ hàng</a
               >
               <a
-                href="login.html"
+                href="/pages/login.html"
                 class="footer__link"
                 data-aos="fade-up"
                 data-aos-delay="600"
@@ -544,7 +522,7 @@
                 >Đăng nhập</a
               >
               <a
-                href="register.html"
+                href="/pages/register.html"
                 class="footer__link"
                 data-aos="fade-up"
                 data-aos-delay="700"
@@ -685,7 +663,8 @@
           >
             <div class="footer__social">
               <a
-                href="#"
+                href="https://www.facebook.com/vu.khiem.503092"
+                target="_blank"
                 class="footer__social-item"
                 data-aos="fade-down"
                 data-aos-delay="300"
@@ -697,7 +676,8 @@
                 <i class="ri-facebook-fill"></i>
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/le.bao.phuong.minh"
+                target="_blank"
                 class="footer__social-item"
                 data-aos="fade-down"
                 data-aos-delay="400"
@@ -709,7 +689,8 @@
                 <i class="ri-instagram-fill"></i>
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/nguyen.tan.datt.789023"
+                target="_blank"
                 class="footer__social-item"
                 data-aos="fade-down"
                 data-aos-delay="500"
@@ -721,7 +702,8 @@
                 <i class="ri-twitter-fill"></i>
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/minhchausuke"
+                target="_blank"
                 class="footer__social-item"
                 data-aos="fade-down"
                 data-aos-delay="600"
@@ -784,8 +766,8 @@
           <div
             class="col-12 text-center"
             data-aos="fade-up"
-            data-aos-delay="700"
-            data-aos-duration="600"
+            data-aos-delay="600"
+            data-aos-duration="500"
             data-aos-easing="ease-out"
             data-aos-anchor=".footer__payment"
             data-aos-once="true"
@@ -794,7 +776,7 @@
             <p
               class="footer__copyright"
               data-aos="fade-up"
-              data-aos-delay="800"
+              data-aos-delay="700"
               data-aos-duration="600"
               data-aos-easing="ease-out"
               data-aos-offset="-100"
@@ -811,9 +793,12 @@
     <button class="scroll-top"><i class="ri-arrow-up-fill"></i></button>
 
     <!--=============== HEADER JS ===============-->
-    <script src="/assets/js/header/header.js"></script>
+    <script src="/assets/js/header/header.js" defer></script>
 
     <!--=============== PRODUCTS JS ===============-->
-    <script type="module" src="/assets/js/products/app.js"></script>
+    <script type="module" src="/assets/js/products/app.js" defer></script>
+
+    <!--=============== FOOTER JS ===============-->
+    <script src="/assets/js/footer/footer.js"></script>
   </body>
 </html>

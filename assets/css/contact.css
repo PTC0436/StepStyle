@@ -1,4 +1,4 @@
-body {
+.contact-section {
   margin: 0;
   font-family: Arial;
   background: #fcf8f8;
@@ -45,7 +45,7 @@ body {
   border: 1px solid #ddd;
 }
 
-button {
+.contact-section button {
   margin-top: 15px;
   width: 100%;
   padding: 12px;
@@ -57,7 +57,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.contact-section button:hover {
   background: #e99696;
 }
 
