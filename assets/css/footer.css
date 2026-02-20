@@ -17,6 +17,10 @@
   background: var(--bg);
 }
 
+.footer * {
+  font-family: var(--font-family);
+}
+
 .footer__bg {
   position: absolute;
   width: 100%;
