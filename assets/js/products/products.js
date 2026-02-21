@@ -705,7 +705,8 @@ function renderProductDetailTestimonials(data) {
           </div>
         `,
             )
-            .join("") ?? ""
+            .join("") ||
+          `<div class="product__feedback--empty">Hiện tại chưa có review</div>`
         }
       </div>
     </div>
