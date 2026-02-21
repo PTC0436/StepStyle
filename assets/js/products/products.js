@@ -30,7 +30,7 @@ export async function renderProductHome(data) {
             
             <div class="products__list">
               <div class="row mt-sm-2 mt-1 justify-content-center gy-md-4 gy-2">
-                ${data.map((item) => renderProductCard(item, "col-xxl-3 col-lg-4 col-md-4 col-6 px-md-3 px-1")).join("") || renderNoProduct()}
+                ${data.map((item) => renderProductCard(item, "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("") || renderNoProduct()}
               </div>
             </div>
 
@@ -139,7 +139,7 @@ function renderProductHomeSort() {
         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="ri-arrow-up-down-fill"></i>
         </button>
-        <ul class="dropdown-menu dropdown-menu-end">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="defaultDropdown">
           <li><button class="dropdown-item" type="button" data-sort-field="" data-sort-order="">Mặc định</button></li>
           <li><button class="dropdown-item" type="button" data-sort-field="salePrice" data-sort-order="asc">Giá thấp đến cao</button></li>
           <li><button class="dropdown-item" type="button" data-sort-field="salePrice" data-sort-order="desc">Giá cao đến thấp</button></li>
@@ -498,7 +498,7 @@ function renderProductDetailInfor(data) {
   return `
     <div class="product__infor">
       <h3>Thông tin chi tiết</h3>
-      <div class="accordion accordion-flush product__accordion" id="product__accordion">
+      <div class="accordion product__accordion" id="product__accordion">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -719,7 +719,7 @@ async function renderProductDetailFamiliar(brand, excptID) {
     <div class="product__same-brand">
       <h3>Sản phẩm tương tự</h3>
       <div class="row mt-2 gy-4 justify-content-center">
-        ${prodList?.map((prod) => renderProductCard(prod, "col-lg-3 col-6 px-md-3 px-1")).join("") ?? ""}
+        ${prodList?.map((prod) => renderProductCard(prod, "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("") ?? ""}
       </div>
     <div>
   `;
