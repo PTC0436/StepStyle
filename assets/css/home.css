@@ -86,3 +86,25 @@ body {
   color: #f5afaf;
   font-weight: bold;
 }
+
+.slider {
+  width: 95%;
+  max-width: 1000px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(245, 175, 175, 0.25);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/11;
+  object-fit: cover;
+  flex: 0 0 100%;
+}
