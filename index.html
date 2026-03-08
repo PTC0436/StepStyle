@@ -41,10 +41,25 @@
     <script src="/libs/aos/aos.js"></script>
 
     <!--=============== HEADER ===============-->
-    <header class="header">
+    <header
+      class="header"
+      data-aos="fade-dơn"
+      data-aos-delay="0"
+      data-aos-duration="600"
+      data-aos-easing="ease-out"
+      data-aos-offset="-100"
+      data-aos-once="true"
+    >
       <nav class="nav container-xl">
         <div class="nav__data">
-          <a href="/index.html" class="nav__logo">
+          <a
+            href="/index.html"
+            class="nav__logo"
+            data-aos="fade-down"
+            data-aos-delay="0"
+            data-aos-easing="ease-out"
+            data-aos-once="true"
+          >
             <img src="/assets/images/logo.jpg" alt="" />
             <h5>Stepstyle</h5>
           </a>
@@ -59,7 +74,14 @@
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li>
-              <a href="/index.html" class="nav__link nav__link--active">
+              <a
+                href="/index.html"
+                class="nav__link"
+                data-aos="fade-down"
+                data-aos-delay="0"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
+              >
                 <div>
                   <i class="ri-home-3-line nav__link-logo"></i>Trang chủ
                 </div>
@@ -68,7 +90,13 @@
 
             <!--=============== DROPDOWN 1 ===============-->
             <li class="dropdown__item">
-              <div class="nav__link">
+              <div
+                class="nav__link"
+                data-aos="fade-down"
+                data-aos-delay="100"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
+              >
                 <a href="/pages/products.html">
                   <i class="ri-box-3-line nav__link-logo"></i>Sản phẩm
                 </a>
@@ -244,37 +272,78 @@
             </li>
 
             <li>
-              <a href="/pages/about.html" class="nav__link">
+              <a
+                href="/pages/about.html"
+                class="nav__link"
+                data-aos="fade-down"
+                data-aos-delay="200"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
+              >
                 <div>
                   <i class="ri-id-card-line nav__link-logo"></i>Giới thiệu
                 </div>
               </a>
             </li>
             <li>
-              <a href="/pages/contact.html" class="nav__link">
+              <a
+                href="/pages/contact.html"
+                class="nav__link"
+                data-aos="fade-down"
+                data-aos-delay="300"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
+              >
                 <div><i class="ri-phone-line nav__link-logo"></i>Liên hệ</div>
               </a>
             </li>
             <li>
-              <a href="/pages/cart.html" class="nav__link">
+              <a
+                href="/pages/cart.html"
+                class="nav__link"
+                data-aos="fade-down"
+                data-aos-delay="400"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
+                data-nav="cart"
+              >
                 <div>
                   <i class="ri-shopping-cart-2-line nav__link-logo"></i>Giỏ hàng
                 </div>
               </a>
             </li>
             <li>
-              <a href="/pages/register.html" class="nav__link">
+              <a
+                href="/pages/login.html"
+                class="nav__link"
+                data-aos="fade-down"
+                data-aos-delay="500"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
+                data-nav="register"
+              >
                 <div>
                   <i class="ri-user-add-line nav__link-logo"></i>Đăng kí
                 </div>
               </a>
             </li>
             <li>
-              <a href="/pages/login.html" class="nav__link">
+              <a
+                href="/pages/register.html"
+                class="nav__link"
+                data-aos="fade-down"
+                data-aos-delay="600"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
+                data-nav="login"
+              >
                 <div>
                   <i class="ri-logout-box-line nav__link-logo"></i>Đăng nhập
                 </div>
               </a>
+            </li>
+            <li>
+              <div class="nav__user nav__user--hidden"></div>
             </li>
           </ul>
         </div>
@@ -345,7 +414,7 @@
         data-aos-once="true"
       ></div>
       <div class="container-xl">
-        <div class="row footer__top align-items-start">
+        <div class="row footer__top align-items-center">
           <!-- Brand + Contact -->
           <div
             class="col-md-3 col-6"
@@ -406,7 +475,7 @@
             data-aos-anchor=".footer"
             data-aos-once="true"
           >
-            <div class="footer__card mt-5">
+            <div class="footer__card mt-3">
               <p class="footer__card-title">Thông tin</p>
               <a
                 href="/index.html"
@@ -454,7 +523,7 @@
             data-aos-anchor=".footer"
             data-aos-once="true"
           >
-            <div class="footer__card mt-5">
+            <div class="footer__card mt-3">
               <p class="footer__card-title">Mua sắm</p>
               <a
                 href="/pages/products.html"
@@ -513,7 +582,7 @@
             data-aos-anchor=".footer"
             data-aos-once="true"
           >
-            <div class="footer__card mt-5">
+            <div class="footer__card mt-3">
               <p class="footer__card-title">Chính sách</p>
               <a
                 href="#"
@@ -764,7 +833,7 @@
     <script src="/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!--=============== HEADER JS ===============-->
-    <script src="/assets/js/header/header.js"></script>
+    <script type="module" src="/assets/js/header/header.js"></script>
 
     <!--=============== HOME JS ===============-->
     <script src="/assets/js/home/home.js"></script>

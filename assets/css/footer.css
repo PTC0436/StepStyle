@@ -39,13 +39,19 @@
 }
 
 .footer__brand-logo img {
-  width: min(100%, 250px);
+  width: 100%;
+  min-width: 100px;
+  max-width: 300px;
 }
 
 .footer__contact {
   color: var(--bg-light);
   text-align: center;
   margin-top: -30px;
+}
+
+.footer__contact p {
+  margin-bottom: 8px;
 }
 
 .footer__card {
@@ -59,13 +65,14 @@
   color: var(--bg-light);
   font-weight: 700;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 
 .footer__link {
   color: var(--bg-light);
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   transition: 0.3s ease;
   position: relative;
   width: fit-content;
@@ -203,11 +210,11 @@
   }
   .footer__contact p {
     margin-bottom: 5px;
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .footer__card-title {
-    margin-top: 15px;
+    margin-top: 0px;
     font-size: 13px;
   }
 
@@ -251,6 +258,6 @@
 
   .footer__copyright {
     font-size: 11px;
-    margin-top: -30px;
+    margin-top: -20px;
   }
 }

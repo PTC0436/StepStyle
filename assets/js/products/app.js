@@ -12,6 +12,7 @@ import {
 } from "./setUpProductMain.js";
 import setUpBackButton from "./setUpBackButton.js";
 import { renderPageNotFound404 } from "./products.js";
+import setUpNavLink from "../header/setUpNavLink.js";
 
 async function render() {
   const app = document.querySelector("#app");

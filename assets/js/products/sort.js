@@ -18,7 +18,7 @@ export function setUpSort() {
 export function setUpSortItem() {
   const { query } = getHashPath();
 
-  console.log(query);
+  // console.log(query);
   const sort = query.get("sort");
   if (!sort)
     document

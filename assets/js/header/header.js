@@ -1,3 +1,5 @@
+import setUpHeader from "./setUpHeader.js";
+
 /* ================= MOBILE MENU ================= */
 
 const navMenu = document.querySelector(".nav__menu");
@@ -53,3 +55,7 @@ document.addEventListener("click", (e) => {
   navMenu.classList.remove("show-menu");
   navToggle.classList.remove("show-icon");
 });
+
+/* ================= SET UP LOGOUT BUTTON ================= */
+
+setUpHeader();

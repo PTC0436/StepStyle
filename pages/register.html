@@ -305,6 +305,7 @@
                 data-aos-delay="400"
                 data-aos-easing="ease-out"
                 data-aos-once="true"
+                data-nav="cart"
               >
                 <div>
                   <i class="ri-shopping-cart-2-line nav__link-logo"></i>Giỏ hàng
@@ -313,12 +314,13 @@
             </li>
             <li>
               <a
-                href="/pages/register.html"
-                class="nav__link nav__link--active"
+                href="/pages/login.html"
+                class="nav__link"
                 data-aos="fade-down"
                 data-aos-delay="500"
                 data-aos-easing="ease-out"
                 data-aos-once="true"
+                data-nav="register"
               >
                 <div>
                   <i class="ri-user-add-line nav__link-logo"></i>Đăng kí
@@ -327,17 +329,21 @@
             </li>
             <li>
               <a
-                href="/pages/login.html"
+                href="/pages/register.html"
                 class="nav__link"
                 data-aos="fade-down"
                 data-aos-delay="600"
                 data-aos-easing="ease-out"
                 data-aos-once="true"
+                data-nav="login"
               >
                 <div>
                   <i class="ri-logout-box-line nav__link-logo"></i>Đăng nhập
                 </div>
               </a>
+            </li>
+            <li>
+              <div class="nav__user nav__user--hidden"></div>
             </li>
           </ul>
         </div>
@@ -345,7 +351,61 @@
     </header>
 
     <!--=============== MAIN ===============-->
-    <main>Register</main>
+    <main class="register-main">
+      <div class="container">
+        <form>
+          <h3>Đăng ký tài khoản</h3>
+          <div class="mb-3">
+            <label for="userName" class="form-label">Họ và tên</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userName"
+              placeholder="Nhập họ và tên"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Email"
+              placeholder="Nhập Email"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Nhập password"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="repassworc" class="form-label">Mật khẩu</label>
+            <input
+              type="password"
+              class="form-control"
+              id="repassworc"
+              placeholder="Nhập lại mật khẩu"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="address" class="form-label">Địa chỉ</label>
+            <textarea class="form-control" id="address" rows="3"></textarea>
+          </div>
+          <div>
+            <button class="btn btn-primary">Đăng ký</button>
+          </div>
+          <p>
+            Bạn đã có tài khoản?
+            <a href="../login/login.html" style="color: #ff69b4">Đăng nhập</a>
+          </p>
+        </form>
+      </div>
+    </main>
 
     <!--=============== FOOTER ===============-->
     <footer class="footer">
@@ -360,7 +420,7 @@
         data-aos-once="true"
       ></div>
       <div class="container-xl">
-        <div class="row footer__top align-items-start">
+        <div class="row footer__top align-items-center">
           <!-- Brand + Contact -->
           <div
             class="col-md-3 col-6"
@@ -421,7 +481,7 @@
             data-aos-anchor=".footer"
             data-aos-once="true"
           >
-            <div class="footer__card mt-5">
+            <div class="footer__card mt-3">
               <p class="footer__card-title">Thông tin</p>
               <a
                 href="/index.html"
@@ -469,7 +529,7 @@
             data-aos-anchor=".footer"
             data-aos-once="true"
           >
-            <div class="footer__card mt-5">
+            <div class="footer__card mt-3">
               <p class="footer__card-title">Mua sắm</p>
               <a
                 href="/pages/products.html"
@@ -528,7 +588,7 @@
             data-aos-anchor=".footer"
             data-aos-once="true"
           >
-            <div class="footer__card mt-5">
+            <div class="footer__card mt-3">
               <p class="footer__card-title">Chính sách</p>
               <a
                 href="#"
@@ -776,7 +836,10 @@
     <button class="scroll-top"><i class="ri-arrow-up-fill"></i></button>
 
     <!--=============== HEADER JS ===============-->
-    <script src="/assets/js/header/header.js" defer></script>
+    <script type="module" src="/assets/js/header/header.js" defer></script>
+
+    <!--=============== REGISTER JS ===============-->
+    <script src="/assets/js/register/register.js" defer></script>
 
     <!--=============== FOOTER JS ===============-->
     <script src="/assets/js/footer/footer.js"></script>
