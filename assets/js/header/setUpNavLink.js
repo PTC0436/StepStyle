@@ -1,5 +1,5 @@
 const setUpNavLink = () => {
-  const path = window.location.pathname;
+  var path = window.location.pathname;
   if (path == "/") path = "/index.html";
   // console.log(path);
   if (path == "/pages/products.html") {
