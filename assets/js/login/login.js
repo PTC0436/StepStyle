@@ -1,8 +1,10 @@
+import { api, saveAuth } from "../utils/request.js";
+
 const loginForm = document.querySelector("form");
 
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  console.log(e);
+
   const email = document.getElementById("Email").value.trim();
   const password = document.getElementById("password").value;
 
@@ -12,37 +14,18 @@ loginForm.addEventListener("submit", async (e) => {
   }
 
   try {
-    const res = await fetch(
-      "https://stepstyle-api.onrender.com/api/auth/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      },
-    );
-    const data = await res.json();
-    console.log(data);
-    console.log(res);
+    const res = await api.post("/api/auth/login", { email, password });
 
-    if (!res.ok) {
-      if (res.status === 401) {
-        alert("Sai email hoặc password");
-      } else {
-        alert("Server error");
-      }
-      return;
+    saveAuth(res);
+
+    window.location.href = "/index.html";
+  } catch (err) {
+    if (err.message === "Invalid email or password") {
+      alert("Email hoặc mật khẩu không đúng!");
+    } else {
+      alert(err.message || "Đăng nhập thất bại!");
     }
 
-    // login thành công
-    localStorage.setItem("accessToken", data.accessToken);
-    localStorage.setItem("refreshToken", data.refreshToken);
-    localStorage.setItem("user", JSON.stringify(data.user));
-
-    window.location.href = "/";
-  } catch (err) {
-    console.error("Network error:", err);
-    alert("Không thể kết nối server");
+    console.error(err);
   }
 });

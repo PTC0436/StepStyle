@@ -1,19 +1,21 @@
+import { api } from "../utils/request";
+
 // register.js
 document.addEventListener("DOMContentLoaded", function () {
   const registerForm = document.querySelector("form");
 
-  registerForm.addEventListener("submit", function (e) {
+  registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Lấy giá trị từ các input
-    const fullName = document.getElementById("userName").value.trim();
+    const name = document.getElementById("userName").value.trim();
     const email = document.getElementById("Email").value.trim();
     const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("repassworc").value;
+    const confirmPassword = document.getElementById("repassword").value;
     const address = document.getElementById("address").value.trim();
 
     // Kiểm tra các trường không được để trống
-    if (!fullName || !email || !password || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword) {
       alert("Vui lòng điền đầy đủ thông tin!");
       return;
     }
@@ -25,8 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Kiểm tra mật khẩu đủ mạnh
-    if (password.length < 6) {
-      alert("Mật khẩu phải có ít nhất 6 ký tự!");
+    if (isValidPassword(password)) {
+      alert(
+        "Password phải tối thiểu 8 ký tự, chứa ít nhất 1 chữ thường, 1 chữ hoa, 1 số và 1 ký tự đặc biệt",
+      );
       return;
     }
 
@@ -36,41 +40,24 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Lấy danh sách users từ localStorage
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const res = await api.post("/api/auth/register", {
+      name,
+      email,
+      password,
+      address,
+    });
 
-    // Kiểm tra email đã tồn tại chưa
-    const existingUser = users.find((user) => user.email === email);
-    if (existingUser) {
-      alert("Email đã được đăng ký!");
-      return;
-    }
-
-    // Tạo user mới
-    const newUser = {
-      id: Date.now(),
-      fullName: fullName,
-      email: email,
-      password: password,
-      address: address,
-      createdAt: new Date().toISOString(),
-    };
-
-    // Thêm user
-    users.push(newUser);
-
-    // Lưu vào localStorage
-    localStorage.setItem("users", JSON.stringify(users));
-
-    alert("Đăng ký thành công!");
-
-    // Chuyển hướng
-    window.location.href = "../login/login.html";
+    console.log(res);
   });
 
   // Hàm kiểm tra email hợp lệ
   function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  }
+  function isValidPassword(password) {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
   }
 });

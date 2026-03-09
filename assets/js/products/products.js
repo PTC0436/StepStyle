@@ -11,17 +11,24 @@ import capitalizeWords from "./capitalizeWords.js";
 import { HOME_DOMAIN, PRODUCT_DOMAIN } from "./domain.js";
 import getHashPath from "./getHashPath.js";
 
-export async function renderProductHome(data) {
+export async function renderProductHome({
+  products = [],
+  brandList = [],
+  genderList = [],
+  tagList = [],
+}) {
+  const { data } = products;
+
   return `
     <div class="products py-md-4 py-3">
       <div class="container-xxl">
         <div class="products__wrapper d-flex">
-          ${await renderProductHomeFilter()}
+          ${await renderProductHomeFilter(brandList, genderList, tagList)}
           <div class="flex-grow-1">
             <div class="d-flex gap-3 justify-content-between align-items-center">
               ${renderProductHomeSearch()}
               <div class="d-flex">
-                ${await renderProductHomeModal()}
+                ${await renderProductHomeModal(brandList, genderList, tagList)}
                 ${renderProductHomeSort()}
               </div>
             </div>
@@ -30,7 +37,16 @@ export async function renderProductHome(data) {
             
             <div class="products__list">
               <div class="row mt-sm-2 mt-1 justify-content-center gy-md-4 gy-2">
-                ${data.map((item) => renderProductCard(item, "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("") || renderNoProduct()}
+                ${
+                  data
+                    ?.map((item) =>
+                      renderProductCard(
+                        item,
+                        "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1",
+                      ),
+                    )
+                    .join("") || renderNoProduct()
+                }
               </div>
             </div>
 
@@ -41,11 +57,11 @@ export async function renderProductHome(data) {
   `;
 }
 
-async function renderProductHomeFilter() {
-  const brandList = await getBrandList();
-  const genderList = await getGenderList();
-  const tagList = await getTagList();
-
+async function renderProductHomeFilter(
+  brandList = [],
+  genderList = [],
+  tagList = [],
+) {
   return `
     <div class="products__filter" data-aos="fade-right" data-aos-duration="300" data-aos-easing="ease-out">
       <div class="filter">
@@ -152,11 +168,11 @@ function renderProductHomeSort() {
   `;
 }
 
-async function renderProductHomeModal() {
-  const brandList = await getBrandList();
-  const genderList = await getGenderList();
-  const tagList = await getTagList();
-
+async function renderProductHomeModal(
+  brandList = [],
+  genderList = [],
+  tagList = [],
+) {
   return `
     <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
       
@@ -342,9 +358,9 @@ function renderProductCard(data, className) {
             ${discountPercentage < 0 ? `<span class="prod__price--old" data-currency=${data.currency}>${formatCurrency(data.price)}</span>` : ""}
           </div>
           <div class="prod__rating">
-            <div class="prod__stars">${getRatingStars(data.rating)}</div>
-            <div class="prod__score">${data.rating}</div>
-            <div class="prod__num-reviews">(${data.reviews.length})</div>
+            <div class="prod__stars">${getRatingStars(data.ratingAverage)}</div>
+            <div class="prod__score">${data.ratingAverage}</div>
+            <div class="prod__num-reviews">(${data.ratingCount})</div>
           </div>
         </div>
       </div>
@@ -364,33 +380,36 @@ function renderNoProduct() {
   `;
 }
 
-export async function renderProductDetail() {
-  const [data] = arguments;
+export async function renderProductDetail({
+  product = {},
+  reviews = [],
+  similarProducts = [],
+}) {
   return `
 			<div class="product">
         <div class="container-xl">
-          ${renderProductDetailBreadcrumb(data.name)}
+          ${renderProductDetailBreadcrumb(product.name)}
           <button class="btn-back btn-back--text"><i class="ri-arrow-left-long-line"></i></button>
           <div class="product__wrapper">
-            ${renderProductDetailMain(data)}
+            ${renderProductDetailMain(product)}
           </div>
           <div class="product__wrapper">
-            ${renderProductDetailInfor(data)}
+            ${renderProductDetailInfor(product)}
           </div>
           <div class="product__wrapper">
-            ${renderProductDetailTestimonials(data)}
+            ${renderProductDetailTestimonials(reviews)}
           </div>
           <div class="product__wrapper">
-            ${await renderProductDetailFamiliar(data.brand, data.id)}
+            ${await renderProductDetailFamiliar(similarProducts)}
           </div>
         </div>
       </div >
 		`;
 }
 
-function renderProductDetailMain(data) {
+function renderProductDetailMain(product) {
   const discountPercentage = (
-    100 * (data.salePrice / data.price) -
+    100 * (product.salePrice / product.price) -
     100
   ).toFixed(0);
   // data.stock = 0;
@@ -400,10 +419,10 @@ function renderProductDetailMain(data) {
       <div class="col-md-5">
         <div class="product__images">
           <div class="product__slider-show slider slider-for">
-            ${data.images.map((img) => `<div class="product__slider-show-item"><img src=${img} alt="${data.name}" /></div>`).join("")}
+            ${product.images.map((img) => `<div class="product__slider-show-item"><img src=${img} alt="${product.name}" /></div>`).join("")}
           </div>
           <div class="product__slider-nav slider slider-nav">
-            ${data.images.map((img) => `<div class="product__slider-nav-item"><img src=${img} alt="${data.name}" /></div>`).join("")}
+            ${product.images.map((img) => `<div class="product__slider-nav-item"><img src=${img} alt="${product.name}" /></div>`).join("")}
           </div>
         </div>
       </div>
@@ -414,19 +433,19 @@ function renderProductDetailMain(data) {
               <span class='product__badge product__badge--hot'>HOT</span>
               ${discountPercentage < 0 ? `<span class='product__badge product__badge--sale'>${discountPercentage}%</span>` : ""}
             </span>
-            ${data.name}
+            ${product.name}
           </h3>
-          <p class="product__brand">${data.brand}</p>
+          <p class="product__brand">${product.brand}</p>
 
           <div class="product__rating">
-            <div class="product__stars">${getRatingStars(data.rating)}</div>
-            <div class="product__score">${data.rating}</div>
-            <div class="product__num-reviews">(${data.reviews.length})</div>
+            <div class="product__stars">${getRatingStars(product.ratingAverage)}</div>
+            <div class="product__score">${product.ratingAverage}</div>
+            <div class="product__num-reviews">(${product.ratingCount})</div>
           </div>
 
           <div class="product__price">
-            <span class="product__price--current" data-currency=${data.currency}>${formatCurrency(data.salePrice)}</span>
-            ${discountPercentage < 0 ? `<span class="product__price--old" data-currency=${data.currency}>${formatCurrency(data.price)}</span>` : ""}
+            <span class="product__price--current" data-currency=${product.currency}>${formatCurrency(product.salePrice)}</span>
+            ${discountPercentage < 0 ? `<span class="product__price--old" data-currency=${product.currency}>${formatCurrency(product.price)}</span>` : ""}
           </div>
           
           <div class="product__selections">
@@ -436,10 +455,10 @@ function renderProductDetailMain(data) {
               </div>
               <div class="col-xxl-10 col-md-8 col-sm-9">
                 <div class="product__options">
-                  ${data.colors
+                  ${product.colors
                     .map(
                       (color) => `
-                    <div class="product__color" data-id="${data.id}" data-color=${color.hex} data-color-name=${color.name}></div>
+                    <div class="product__color" data-id="${product.id}" data-color=${color.hex} data-color-name=${color.name}></div>
                   `,
                     )
                     .join("")}
@@ -452,10 +471,10 @@ function renderProductDetailMain(data) {
               </div>
               <div class="col-xxl-10 col-md-8 col-sm-9">
                 <div class="product__options">
-                  ${data.sizes
+                  ${product.sizes
                     .map(
                       (size) => `
-                    <span class="product__size" data-id="${data.id}" data-size=${size}>${size}</span>
+                    <span class="product__size" data-id="${product.id}" data-size=${size}>${size}</span>
                   `,
                     )
                     .join("")}
@@ -478,7 +497,7 @@ function renderProductDetailMain(data) {
 
           <div class="product__actions">
             ${
-              data.stock != 0
+              product.stock != 0
                 ? `
               <button class="product__action">Thêm vào giỏ</button>
               <button class="product__action">Mua ngay</button>
@@ -494,7 +513,7 @@ function renderProductDetailMain(data) {
   `;
 }
 
-function renderProductDetailInfor(data) {
+function renderProductDetailInfor(product) {
   return `
     <div class="product__infor">
       <h3>Thông tin chi tiết</h3>
@@ -509,16 +528,16 @@ function renderProductDetailInfor(data) {
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#product__accordion">
             <div class="accordion-body">
-                <p class="product__name" style="font-size: 20px; font-weight: 700;">${data.name}</p>
-                <p><strong>Thương hiệu:</strong> ${data?.brand ?? "Đang cập nhật"}</p>
-                <p><strong>Xuất xứ:</strong> ${data?.origin ?? "Đang cập nhật"}</p>
-                <p><strong>Chất liệu:</strong> ${data?.material ?? "Đang cập nhật"}</p>
-                <p><strong>Trọng lượng(kg):</strong> ${data?.weight ?? "Đang cập nhật"}</p>
-                <p><strong>Giới tính:</strong> ${data?.gender ?? "Đang cập nhật"}</p>
+                <p class="product__name" style="font-size: 20px; font-weight: 700;">${product.name}</p>
+                <p><strong>Thương hiệu:</strong> ${product?.brand ?? "Đang cập nhật"}</p>
+                <p><strong>Xuất xứ:</strong> ${product?.origin ?? "Đang cập nhật"}</p>
+                <p><strong>Chất liệu:</strong> ${product?.material ?? "Đang cập nhật"}</p>
+                <p><strong>Trọng lượng(kg):</strong> ${product?.weight ?? "Đang cập nhật"}</p>
+                <p><strong>Giới tính:</strong> ${product?.gender ?? "Đang cập nhật"}</p>
                 <p><strong>Cam kết chính hãng 100%</strong></p>
                 <p><strong style="text-decoration: underline; font-style: italic;">Lưu ý:</strong>Đối với các sản phẩm hết hàng sẵn hoặc hết size bạn cần, Quý khách có thể liên hệ với Stepstyle để trao đổi.</p>
                 <br/>
-                <p>${data?.description ?? ""}</p>
+                <p>${product?.description ?? ""}</p>
             </div>  
           </div>
         </div>
@@ -673,13 +692,13 @@ function renderProductDetailInfor(data) {
   `;
 }
 
-function renderProductDetailTestimonials(data) {
+function renderProductDetailTestimonials(reviews = []) {
   return `
     <div class="product__testimonials">
       <h3>Đánh giá sản phẩm</h3>
       <div class="product__testi-wrapper">
         ${
-          data?.reviews
+          reviews
             ?.map(
               (review) => `
           <div class="product__feedback">
@@ -689,7 +708,7 @@ function renderProductDetailTestimonials(data) {
               </div>
               <div class="product__feedback-content">
                 <p class="product__feedback-name">
-                  ${review.name}
+                  ${review.user.name}
                 </p>
                 <div class="product__feedback-rating">
                   ${getRatingStars(review.rating)}
@@ -713,14 +732,12 @@ function renderProductDetailTestimonials(data) {
   `;
 }
 
-async function renderProductDetailFamiliar(brand, excptID) {
-  const data = await getProductsListByBrand(brand);
-  const prodList = data?.filter((item) => item.id != excptID);
+async function renderProductDetailFamiliar(similarProducts = []) {
   return `
     <div class="product__same-brand">
       <h3>Sản phẩm tương tự</h3>
       <div class="row mt-2 gy-4 justify-content-center">
-        ${prodList?.map((prod) => renderProductCard(prod, "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("") ?? ""}
+        ${similarProducts?.map((prod) => renderProductCard(prod, "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("") ?? ""}
       </div>
     <div>
   `;

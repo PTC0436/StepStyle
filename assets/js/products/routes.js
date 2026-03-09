@@ -1,52 +1,78 @@
-import { getProductsListByID, getProductsList } from "./productsAPI.js";
+import {
+  getBrandList,
+  getGenderList,
+  getProductById,
+  getProductsList,
+  getProductsListByBrand,
+  getSimilarProducts,
+  getTagList,
+} from "./productsAPI.js";
 import {
   renderProductDetail,
   renderProductHome,
   renderPageNotFound404,
 } from "./products.js";
+import { getReviewsByShoeId } from "./reviewsAPI.js";
 
 const routes = [
   {
     path: "/",
     render: async ({ query }) => {
-      const priceRange = query.get("priceRange");
+      try {
+        const filters = {
+          search: query.get("search"),
+          brand: query.get("brand"),
+          gender: query.get("gender"),
+          sort: query.get("sort"),
+          order: query.get("order") || "asc",
+          tags: query.get("tags")?.split(",") || [],
+          priceMin: query.get("priceMin") ?? 0,
+          priceMax: query.get("priceMax") ?? Infinity,
+        };
 
-      const [priceStart, priceEnd] = priceRange
-        ? priceRange
-            .split(",")
-            .map((v) => Number(v))
-            .map((v) => (Number.isFinite(v) ? v : null))
-        : [];
+        const [products, brandList, genderList, tagList] = await Promise.all([
+          getProductsList(filters),
+          getBrandList(),
+          getGenderList(),
+          getTagList(),
+        ]);
 
-      const minPrice = priceStart ?? 0;
-      const maxPrice = priceEnd ?? Infinity;
-
-      const filters = {
-        search: query.get("search"),
-        brand: query.get("brand"),
-        gender: query.get("gender"),
-        sort: query.get("sort"),
-        order: query.get("order") || "asc",
-        tags: query.get("tags")?.split(",") || [],
-        priceRange: [minPrice, maxPrice],
-      };
-
-      const data = await getProductsList(filters);
-      return {
-        html: await renderProductHome(data),
-        route: "PRODUCT_HOME",
-      };
+        // console.log(products);
+        // console.log(brandList);
+        // console.log(genderList);
+        // console.log(tagList);
+        return {
+          html: await renderProductHome({
+            products,
+            brandList,
+            genderList,
+            tagList,
+          }),
+          route: "PRODUCT_HOME",
+        };
+      } catch (err) {
+        console.error(err);
+      }
     },
   },
 
   {
     path: "/:id",
     render: async (params) => {
-      const [product] = await getProductsListByID(params.id);
+      const [product, reviews, similarProducts] = await Promise.all([
+        getProductById(params.id),
+        getReviewsByShoeId(params.id),
+        getSimilarProducts(params.id),
+      ]);
+
       if (!product) return renderPageNotFound404();
 
+      // console.log(product);
+      // console.log(reviews);
+      // console.log(similarProducts);
+
       return {
-        html: await renderProductDetail(product),
+        html: await renderProductDetail({ product, reviews, similarProducts }),
         route: "PRODUCT_DETAIL",
       };
     },
