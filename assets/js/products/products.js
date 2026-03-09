@@ -334,6 +334,7 @@ function renderProductHomeConstraint() {
 }
 
 function renderProductCard(data, className) {
+  // console.log(data);
   const discountPercentage = (
     100 * (data.salePrice / data.price) -
     100
