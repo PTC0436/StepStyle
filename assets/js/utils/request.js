@@ -1,5 +1,5 @@
 const API_DOMAIN = "https://stepstyle-api.onrender.com";
-const TIMEOUT = 100000;
+const TIMEOUT = 1000000;
 
 //////////////////////////////
 // TOKEN STORAGE
