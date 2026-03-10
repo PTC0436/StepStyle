@@ -42,6 +42,7 @@
   border-radius: 10px;
   border: 1px solid var(--bg-dark);
 }
+
 .product__slider-show-item {
   width: 100%;
 }
@@ -1188,6 +1189,7 @@
   background: #bbbbbb;
   animation: skeleton-loading 1.2s infinite linear;
   display: block;
+  border: none;
   /* border-radius: 5px; */
 }
 

@@ -13,6 +13,9 @@
     <!--=============== AOS CSS ===============-->
     <link rel="stylesheet" href="/libs/aos/aos.css" />
 
+    <!--=============== SWEETALERT CSS ===============-->
+    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
+
     <!--=============== BOOTSTRAP5 CSS ===============-->
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
 
@@ -365,11 +368,11 @@
             />
           </div>
           <div class="mb-3">
-            <label for="Email" class="form-label">Email</label>
+            <label for="email" class="form-label">Email</label>
             <input
               type="text"
               class="form-control"
-              id="Email"
+              id="email"
               placeholder="Nhập Email"
             />
           </div>
@@ -387,7 +390,7 @@
             <input
               type="password"
               class="form-control"
-              id="repassworc"
+              id="repassword"
               placeholder="Nhập lại mật khẩu"
             />
           </div>
@@ -397,7 +400,8 @@
             <textarea class="form-control" id="address" rows="3"></textarea>
           </div>
           <div>
-            <button class="btn btn-primary">Đăng ký</button>
+            <button type="submit" class="btn btn-primary">Đăng ký</button>
+            <div class="btn-loading"><span class="loader"></span></div>
           </div>
           <p>
             Bạn đã có tài khoản?
@@ -839,7 +843,7 @@
     <script type="module" src="/assets/js/header/header.js" defer></script>
 
     <!--=============== REGISTER JS ===============-->
-    <script src="/assets/js/register/register.js" defer></script>
+    <script type="module" src="/assets/js/register/register.js" defer></script>
 
     <!--=============== FOOTER JS ===============-->
     <script src="/assets/js/footer/footer.js"></script>

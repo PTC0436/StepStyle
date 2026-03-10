@@ -12,6 +12,7 @@ import {
   renderProductHome,
   renderPageNotFound404,
   renderProductDetailSkeleton,
+  renderProductHomeSkeleton,
 } from "./products.js";
 import { getReviewsByShoeId } from "./reviewsAPI.js";
 
@@ -20,6 +21,13 @@ const routes = [
     path: "/",
     render: async ({ query }) => {
       try {
+        const app = document.querySelector("#app");
+        if (app) app.innerHTML = renderProductHomeSkeleton();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
         const filters = {
           search: query.get("search"),
           brand: query.get("brand"),
@@ -49,6 +57,7 @@ const routes = [
             genderList,
             tagList,
           }),
+          // html: renderProductHomeSkeleton(),
           route: "PRODUCT_HOME",
         };
       } catch (err) {
