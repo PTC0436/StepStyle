@@ -778,3 +778,145 @@ export function renderPageNotFound404() {
     </div>
   `;
 }
+
+export function renderProductDetailSkeleton() {
+  return `
+    <div class="product">
+      <div class="container-xl">
+        <div aria-label="breadcrumb">
+          <div class="breadcrumb skeleton" style="margin-bottom: 5px; padding-left:5px; max-width:400px; min-height:20px; border-radius:5px;">
+          </div>
+        </div>
+        <button class="btn-back btn-back--text"><i class="ri-arrow-left-long-line"></i></button>
+        <div class="product__wrapper">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="product__images">
+                <div class="product__slider-show slider slider-for">
+                  <div class="product__slider-show-item skeleton" style="min-height:250px; border-radius:5px;"></div>
+                </div>
+                <div class="product__slider-nav slider slider-nav skeleton" style="min-height:50px; border-radius:5px;"></div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="product__body">
+                <div class="product__name skeleton" style="min-height:20px"></div>
+                <div class="product__brand skeleton" style="min-height:20px; max-width:200px; border-radius:5px;"></div>
+
+                <div class="product__rating skeleton" style="min-height:20px; max-width:250px; border-radius:5px;"></div>
+
+                <div class="product__price skeleton" style="min-height:20px; max-width:300px; margin-top:5px; border-radius:5px;"></div>
+
+                <div class="product__selections">
+                  <div class="row align-items-center gy-2">
+                    <div class="col-xxl-2 col-md-4 col-sm-3">
+                      <div class="product__selection skeleton" style="min-height:30px; max-width:200px; border-radius:5px;"></div>
+                    </div>
+                    <div class="col-xxl-10 col-md-8 col-sm-9">
+                      <div class="product__options">
+                        <div class="product__color skeleton"></div>
+                        <div class="product__color skeleton"></div>
+                        <div class="product__color skeleton"></div>
+                        <div class="product__color skeleton"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row align-items-center gy-2">
+                    <div class="col-xxl-2 col-md-4 col-sm-3">
+                      <div class="product__selection skeleton" style="min-height:30px; max-width:200px; border-radius:5px;"></div>
+                    </div>
+                    <div class="col-xxl-10 col-md-8 col-sm-9">
+                      <div class="product__options">
+                        <div class="product__size skeleton"></div>
+                        <div class="product__size skeleton"></div>
+                        <div class="product__size skeleton"></div>
+                        <div class="product__size skeleton"></div>
+                        <div class="product__size skeleton"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row align-items-center gy-2">
+                    <div class="col-xxl-2 col-md-4 col-sm-3">
+                      <div class="product__selection skeleton" style="min-height:30px; max-width:200px; border-radius:5px;"></div>
+                    </div>
+                    <div class="col-xxl-10 col-md-8 col-sm-6">
+                      <div class="product__quantity skeleton"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="product__actions">
+                  <div class="product__action skeleton" style="min-height:40px; min-width:150px"; max-width:200px"></div>
+                  <div class="product__action skeleton" style="min-height:40px; min-width:150px"; max-width:200px"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product__wrapper">
+          <div class="product__infor">
+            <h3 class="skeleton" style="min-height:25px; max-width:300px; border-radius:5px;"></h3>
+            <div class="skeleton" style="min-height:20px; max-width:100%; border-radius:5px;"></div>
+            <div class="skeleton" style="min-height:20px; max-width:100%; border-radius:5px; margin-top:5px;"></div>
+            <div class="skeleton" style="min-height:20px; max-width:100%; border-radius:5px; margin-top:5px;"></div>
+          </div>
+        </div>
+        <div class="product__wrapper">
+          <div class="product__testimonials">
+            <h3 class="skeleton" style="min-height:25px; max-width:300px; border-radius:5px;"></h3>
+            <div class="product__testi-wrapper">
+              <div class="product__feedback">
+                <div class="product__feedback-header">
+                  <div class="product__feedback-avt skeleton"></div>
+                  <div class="product__feedback-content">
+                    <p class="product__feedback-name skeleton" style="min-height:20px; min-width:150px"; max-width:200px; border-radius:5px;"></p>
+                    <div class="product__feedback-rating skeleton" style="min-height:20px; min-width:100px"; max-width:100px; border-radius:5px;"></div>
+                    <div class="product__feedback-date skeleton" style="min-height:20px; min-width:100px"; max-width:100px; border-radius:5px;"></div>
+                  </div>
+                </div>
+                <div class="product__feedback-desc skeleton" style="min-height:40px; border-radius:5px;"></div>
+              </div>
+              <div class="product__feedback">
+                <div class="product__feedback-header">
+                  <div class="product__feedback-avt skeleton"></div>
+                  <div class="product__feedback-content">
+                    <p class="product__feedback-name skeleton" style="min-height:20px; min-width:150px"; max-width:200px; border-radius:5px;"></p>
+                    <div class="product__feedback-rating skeleton" style="min-height:20px; min-width:100px"; max-width:100px; border-radius:5px;"></div>
+                    <div class="product__feedback-date skeleton" style="min-height:20px; min-width:100px"; max-width:100px; border-radius:5px;"></div>
+                  </div>
+                </div>
+                <div class="product__feedback-desc skeleton" style="min-height:40px; border-radius:5px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product__wrapper">
+          <div class="product__same-brand">
+            <h3 class="skeleton" style="min-height:25px; max-width:300px; border-radius:5px;"></h3>
+            <div class="row mt-2 gy-4 justify-content-center">
+              ${[...Array(6)].map(() => renderProdCardSkeleton("col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("")}
+            </div>
+          <div>
+        </div>
+      </div>
+    </div >
+  `;
+}
+
+function renderProdCardSkeleton(className) {
+  return `
+    <div class="${className}">
+      <div class="prod__card">
+        <div class="prod__thumb">
+          <a class="skeleton" style="aspect-ratio:4/3; border-radius:10px;"></a>
+        </div>
+        <div class="prod__content">
+          <a class="skeleton" style="height:20px; max-width:200px; border-radius:5px;"></a>
+          <p class="prod__brand skeleton" style="height:18px; max-width:100px; margin-top:5px; border-radius:5px;"></p>
+          <div class="prod__price skeleton" style="height:20px; max-width:250px; border-radius:5px;"></div>
+          <div class="prod__rating skeleton" style="height:18px; max-width:150px; margin-top:5px; border-radius:5px;"></div>
+        </div>
+      </div>
+    </div>
+  `;
+}

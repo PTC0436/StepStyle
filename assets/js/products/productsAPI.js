@@ -111,7 +111,7 @@ export const getProductsListByBrand = async (brand) => {
 
 export const getSimilarProducts = async (id, limit = null) => {
   const res = await api.get(
-    `/api/shoes/${id}/similar${limit ? "limit=" + limit : ""}`,
+    `/api/shoes/${id}/similar${limit ? "?limit=" + limit : ""}`,
   );
   return res;
 };

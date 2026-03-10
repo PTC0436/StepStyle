@@ -274,19 +274,25 @@
   border-radius: 50%;
   font-size: 20px;
 }
-.product__feedback-avt i {
+.product__feedback-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .product__feedback-name {
   color: var(--text);
   margin: 0;
+  line-height: 1;
 }
 .product__feedback-rating i {
   font-size: 17px;
   color: var(--star);
+  line-height: 1;
 }
 .product__feedback-date {
   font-size: 15px;
   color: var(--text-muted);
+  line-height: 1;
 }
 .product .accordion-button {
   font-weight: 700;
@@ -1175,5 +1181,30 @@
       position: relative;
       top: -15px;
     }
+  }
+}
+
+.skeleton {
+  background: #bbbbbb;
+  animation: skeleton-loading 1.2s infinite linear;
+  display: block;
+  /* border-radius: 5px; */
+}
+
+.skeleton:hover {
+  border: none;
+  background: #bbbbbb;
+  box-shadow: none;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
   }
 }

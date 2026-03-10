@@ -11,6 +11,7 @@ import {
   renderProductDetail,
   renderProductHome,
   renderPageNotFound404,
+  renderProductDetailSkeleton,
 } from "./products.js";
 import { getReviewsByShoeId } from "./reviewsAPI.js";
 
@@ -59,10 +60,18 @@ const routes = [
   {
     path: "/:id",
     render: async (params) => {
+      const app = document.querySelector("#app");
+      if (app) app.innerHTML = renderProductDetailSkeleton();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
       const [product, reviews, similarProducts] = await Promise.all([
         getProductById(params.id),
         getReviewsByShoeId(params.id),
-        getSimilarProducts(params.id),
+        getSimilarProducts(params.id, 6),
       ]);
 
       if (!product) return renderPageNotFound404();
@@ -73,6 +82,7 @@ const routes = [
 
       return {
         html: await renderProductDetail({ product, reviews, similarProducts }),
+        // html: renderProductDetailSkeleton(),
         route: "PRODUCT_DETAIL",
       };
     },

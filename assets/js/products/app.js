@@ -15,6 +15,8 @@ import { renderPageNotFound404 } from "./products.js";
 import setUpNavLink from "../header/setUpNavLink.js";
 
 async function render() {
+  //<!--=============== AOS INIT ===============-->
+  AOS.init();
   const app = document.querySelector("#app");
   const { path, query } = getHashPath();
   const match = matchRoute(path);
@@ -28,7 +30,6 @@ async function render() {
   });
   if (!html) {
     app.innerHTML = renderPageNotFound404();
-    AOS.init();
 
     return;
   }
