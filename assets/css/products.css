@@ -873,6 +873,29 @@
   font-size: 20px;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination__item {
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pagination__item:hover {
+  color: var(--primary);
+}
+
+.pagination__number.pagination__number--active {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 @media (max-width: 1175px) {
   .products__filter {
     display: none;
@@ -1209,4 +1232,135 @@
   100% {
     opacity: 0.6;
   }
+}
+
+.height-18px {
+  height: 18px;
+}
+.height-20px {
+  height: 20px;
+}
+.height-24px {
+  height: 24px;
+}
+.height-25px {
+  height: 25px;
+}
+.height-27px {
+  height: 27px;
+}
+.height-30px {
+  height: 30px;
+}
+.height-34px {
+  height: 34px;
+}
+.height-35px {
+  height: 35px;
+}
+.height-40px {
+  height: 40px;
+}
+
+.min-height-60px {
+  height: 60px;
+}
+.min-height-79px {
+  height: 79px;
+}
+
+.width-100 {
+  width: 100%;
+}
+.width-35px {
+  width: 35px;
+}
+.width-43px {
+  width: 43px;
+}
+.width-51px {
+  width: 51px;
+}
+.width-70px {
+  width: 70px;
+}
+.width-80px {
+  width: 80px;
+}
+.width-87px {
+  width: 87px;
+}
+.width-100px {
+  width: 100px;
+}
+.width-120px {
+  width: 120px;
+}
+.width-140px {
+  width: 140px;
+}
+.width-150px {
+  width: 150px;
+}
+.width-200px {
+  width: 200px;
+}
+.width-250px {
+  width: 250px;
+}
+.width-600px {
+  width: 600px;
+}
+
+.min-width-150px {
+  min-width: 150px;
+}
+
+.max-width-100 {
+  max-width: 100%;
+}
+.max-width-100px {
+  max-width: 100px;
+}
+.max-width-150px {
+  max-width: 150px;
+}
+.max-width-200px {
+  max-width: 200px;
+}
+.max-width-300px {
+  max-width: 300px;
+}
+.max-width-400px {
+  max-width: 400px;
+}
+.max-width-600px {
+  max-width: 400px;
+}
+
+.border-radius-50 {
+  border-radius: 50%;
+}
+.border-radius-5px {
+  border-radius: 5px;
+}
+.border-radius-10px {
+  border-radius: 10px;
+}
+.border-radius-20px {
+  border-radius: 20px;
+}
+
+.margin-top-5px {
+  margin-top: 5px;
+}
+.margin-bottom-5px {
+  margin-bottom: 5px;
+}
+.margin-left-5px {
+  margin-left: 5px;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4/3;
 }

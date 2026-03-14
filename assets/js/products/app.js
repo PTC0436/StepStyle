@@ -13,6 +13,7 @@ import {
 import setUpBackButton from "./setUpBackButton.js";
 import { renderPageNotFound404 } from "./products.js";
 import setUpNavLink from "../header/setUpNavLink.js";
+import setUpPagination from "./setUpPagination.js";
 
 async function render() {
   //<!--=============== AOS INIT ===============-->
@@ -68,3 +69,4 @@ setUpSort();
 setUpConstraint();
 setUpProductMain();
 setUpBackButton();
+setUpPagination();

@@ -37,6 +37,7 @@ const routes = [
           tags: query.get("tags")?.split(",") || [],
           priceMin: query.get("priceMin") ?? 0,
           priceMax: query.get("priceMax") ?? Infinity,
+          page: query.get("page") ?? 1,
         };
 
         const [products, brandList, genderList, tagList] = await Promise.all([

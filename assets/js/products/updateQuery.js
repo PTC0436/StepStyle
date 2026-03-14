@@ -1,11 +1,12 @@
 import getHashPath from "./getHashPath.js";
-import buildHash from "./buildHash.js"
+import buildHash from "./buildHash.js";
 
 export default function updateQuery(newQuery = {}) {
   const { path, query } = getHashPath();
 
-  Object.entries(newQuery).forEach(([ key, value ]) => {
+  if (!newQuery.page) newQuery.page = 1;
 
+  Object.entries(newQuery).forEach(([key, value]) => {
     if (value === null || value === undefined || value === "") {
       query.delete(key);
       return;

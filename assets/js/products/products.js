@@ -1,12 +1,6 @@
 import formatCurrency from "./formatCurrency.js";
 import getDateAndTime from "./getDateAndTime.js";
 import getRatingStars from "./getRatingStars.js";
-import {
-  getBrandList,
-  getGenderList,
-  getProductsListByBrand,
-  getTagList,
-} from "./productsAPI.js";
 import capitalizeWords from "./capitalizeWords.js";
 import { HOME_DOMAIN, PRODUCT_DOMAIN } from "./domain.js";
 import getHashPath from "./getHashPath.js";
@@ -17,7 +11,7 @@ export async function renderProductHome({
   genderList = [],
   tagList = [],
 }) {
-  const { data } = products;
+  const { data, page, totalPages } = products;
 
   return `
     <div class="products py-md-4 py-3">
@@ -49,6 +43,7 @@ export async function renderProductHome({
                 }
               </div>
             </div>
+            ${renderProductHomePagination(page, totalPages)}
           </div>
         </div>
       </div>
@@ -159,7 +154,7 @@ function renderProductHomeSort() {
           <li><button class="dropdown-item" type="button" data-sort-field="salePrice" data-sort-order="desc">Giá cao đến thấp</button></li>
           <li><button class="dropdown-item" type="button" data-sort-field="createAt" data-sort-order="desc">Mới nhất</button></li>
           <li><button class="dropdown-item" type="button" data-sort-field="createAt" data-sort-order="asc">Cũ nhất</button></li>
-          <li><button class="dropdown-item" type="button" data-sort-field="reviews" data-sort-order="desc">Nhiều review nhất</button></li>
+          <li><button class="dropdown-item" type="button" data-sort-field="ratingCount" data-sort-order="desc">Nhiều review nhất</button></li>
         </ul>
       </div>
     </div>
@@ -526,7 +521,7 @@ function renderProductDetailInfor(product) {
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#product__accordion">
             <div class="accordion-body">
-                <p class="product__name" style="font-size: 20px; font-weight: 700;">${product.name}</p>
+                <p class="product__name">${product.name}</p>
                 <p><strong>Thương hiệu:</strong> ${product?.brand ?? "Đang cập nhật"}</p>
                 <p><strong>Xuất xứ:</strong> ${product?.origin ?? "Đang cập nhật"}</p>
                 <p><strong>Chất liệu:</strong> ${product?.material ?? "Đang cập nhật"}</p>
@@ -743,10 +738,10 @@ async function renderProductDetailFamiliar(similarProducts = []) {
 
 function renderProductDetailBreadcrumb(name) {
   return `
-    <div aria-label="breadcrumb">
-      <ol class="breadcrumb" style="margin-bottom: 5px; margin-left:0; padding-left:5px;">
-        <li class="breadcrumb-item"><a href=${HOME_DOMAIN}>Home</a></li>
-        <li class="breadcrumb-item"><a href=${PRODUCT_DOMAIN + "#/"}>Products</a></li>
+    <div aria-label="breadcrumb margin-bottom-5px">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="${HOME_DOMAIN}">Home</a></li>
+        <li class="breadcrumb-item"><a href="${PRODUCT_DOMAIN}">Products</a></li>
         <li class="breadcrumb-item active" aria-current="page">${name}</li>
       </ol>
     </div>
@@ -784,64 +779,64 @@ export function renderProductHomeSkeleton() {
           <div class="products__filter">
             <div class="filter">
               <div class="filter__header">
-                <h3 class="filter__heading skeleton" style="height:34px; width:87px; border-radius:5px"></h3>
-                <div class="skeleton" style="height:27px; width:74px; border-radius:5px"></div>
+                <h3 class="filter__heading skeleton width-87px height-34px border-radius-5px"></h3>
+                <div class="skeleton width-74px height-27px border-radius-5px"></div>
               </div>
 
               <div class="filter__label">
-                <p class="filter__title skeleton" style="height:30px; width:120px; border-radius:5px"></p>
-                <button class="skeleton" style="height:24px; width:43px; border-radius:5px"></button>
+                <p class="filter__title skeleton width-120px height-30px border-radius-5px"></p>
+                <button class="skeleton width-43px height-24px border-radius-5px"></button>
               </div>
 
               <div class="filter__list">
-                <div class="skeleton" style="height:34px; width:100px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:120px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:80px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:140px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:150px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:70px; border-radius:20px"></div>
+                <div class="skeleton width-100px height-34px border-radius-20px"></div>
+                <div class="skeleton width-120px height-34px border-radius-20px"></div>
+                <div class="skeleton width-80px height-34px border-radius-20px"></div>
+                <div class="skeleton width-140px height-34px border-radius-20px"></div>
+                <div class="skeleton width-150px height-34px border-radius-20px"></div>
+                <div class="skeleton width-70px height-34px border-radius-20px"></div>
               </div>
 
               <div class="filter__label">
-                <p class="filter__title skeleton" style="height:30px; width:120px; border-radius:5px"></p>
-                <button class="skeleton" style="height:24px; width:43px; border-radius:5px"></button>
+                <p class="filter__title skeleton width-120px height-30px border-radius-5px"></p>
+                <button class="skeleton width-43px height-24px border-radius-5px"></button>
               </div>
 
               <div class="filter__list">
-                <div class="skeleton" style="height:34px; width:100px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:120px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:80px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:140px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:150px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:70px; border-radius:20px"></div>
+                <div class="skeleton width-100px height-34px border-radius-20px"></div>
+                <div class="skeleton width-120px height-34px border-radius-20px"></div>
+                <div class="skeleton width-80px height-34px border-radius-20px"></div>
+                <div class="skeleton width-140px height-34px border-radius-20px"></div>
+                <div class="skeleton width-150px height-34px border-radius-20px"></div>
+                <div class="skeleton width-70px height-34px border-radius-20px"></div>
               </div>
 
               <div class="filter__label">
-                <p class="filter__title skeleton" style="height:30px; width:120px; border-radius:5px"></p>
-                <button class="skeleton" style="height:24px; width:43px; border-radius:5px"></button>
+                <p class="filter__title skeleton width-120px height-30px border-radius-5px"></p>
+                <button class="skeleton width-43px height-24px border-radius-5px"></button>
               </div>
 
               <div class="filter__list">
-                <div class="skeleton" style="height:34px; width:100px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:120px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:80px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:140px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:150px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:70px; border-radius:20px"></div>
+                <div class="skeleton width-100px height-34px border-radius-20px"></div>
+                <div class="skeleton width-120px height-34px border-radius-20px"></div>
+                <div class="skeleton width-80px height-34px border-radius-20px"></div>
+                <div class="skeleton width-140px height-34px border-radius-20px"></div>
+                <div class="skeleton width-150px height-34px border-radius-20px"></div>
+                <div class="skeleton width-70px height-34px border-radius-20px"></div>
               </div>
-              
+
               <div class="filter__label">
-                <p class="filter__title skeleton" style="height:30px; width:120px; border-radius:5px"></p>
-                <button class="skeleton" style="height:24px; width:43px; border-radius:5px"></button>
+                <p class="filter__title skeleton width-120px height-30px border-radius-5px"></p>
+                <button class="skeleton width-43px height-24px border-radius-5px"></button>
               </div>
 
               <div class="filter__list">
-                <div class="skeleton" style="height:34px; width:100px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:120px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:80px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:140px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:150px; border-radius:20px"></div>
-                <div class="skeleton" style="height:34px; width:70px; border-radius:20px"></div>
+                <div class="skeleton width-100px height-34px border-radius-20px"></div>
+                <div class="skeleton width-120px height-34px border-radius-20px"></div>
+                <div class="skeleton width-80px height-34px border-radius-20px"></div>
+                <div class="skeleton width-140px height-34px border-radius-20px"></div>
+                <div class="skeleton width-150px height-34px border-radius-20px"></div>
+                <div class="skeleton width-70px height-34px border-radius-20px"></div>
               </div>
             </div>
           </div>
@@ -849,19 +844,19 @@ export function renderProductHomeSkeleton() {
             <div class="d-flex gap-3 justify-content-between align-items-center">
               <div class="products__search flex-grow-1">
                 <div class="d-flex align-items-center gap-1">
-                  <div class="flex-grow-1 skeleton" style="height:35px; max-width:600px; border-radius:20px"></div>
-                  <div class="skeleton" style="height:35px; width:51px; border-radius:20px"></div>
+                  <div class="flex-grow-1 skeleton max-width-600px height-35px border-radius-20px"></div>
+                  <div class="skeleton width-51px height-35px border-radius-20px"></div>
                 </div>
               </div>
               <div class="d-flex">
-                <div class="skeleton" style="height:35px; width:35px; border-radius:50%;"></div>
-                <div class="skeleton" style="height:35px; width:35px; border-radius:50%;margin-left:5px;"></div>
+                <div class="skeleton width-35px height-35px border-radius-50"></div>
+                <div class="skeleton width-35px height-35px border-radius-50 margin-left-5px"></div>
               </div>
             </div>
             
             <div class="products__list">
               <div class="row mt-sm-2 mt-1 justify-content-center gy-md-4 gy-2">
-                ${[...Array(6)]
+                ${[...Array(8)]
                   .map(() =>
                     renderProdCardSkeleton(
                       "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1",
@@ -869,6 +864,9 @@ export function renderProductHomeSkeleton() {
                   )
                   .join("")}
               </div>
+            </div>
+            <div class="pagination">
+              <div class="skeleton width-100 max-width-400px height-25px border-radius-5px"></div>
             </div>
           </div>
         </div>
@@ -882,7 +880,7 @@ export function renderProductDetailSkeleton() {
     <div class="product">
       <div class="container-xl">
         <div aria-label="breadcrumb">
-          <div class="breadcrumb skeleton" style="margin-bottom: 5px; padding-left:5px; max-width:400px; min-height:20px; border-radius:5px;">
+          <div class="breadcrumb skeleton max-width-400px height-20px border-radius-5px margin-bottom-5px">
           </div>
         </div>
         <button class="btn-back btn-back--text"><i class="ri-arrow-left-long-line"></i></button>
@@ -891,24 +889,21 @@ export function renderProductDetailSkeleton() {
             <div class="col-md-5">
               <div class="product__images">
                 <div class="product__slider-show slider slider-for">
-                  <div class="product__slider-show-item skeleton" style="aspect-ratio:4/3; border-radius:5px;"></div>
+                  <div class="product__slider-show-item skeleton aspect-ratio-4-3 border-radius-5px"></div>
                 </div>
-                <div class="product__slider-nav slider slider-nav skeleton" style="min-height:79px; border-radius:5px;"></div>
+                <div class="product__slider-nav slider slider-nav skeleton min-height-60px border-radius-5px"></div>
               </div>
             </div>
             <div class="col-md-7">
               <div class="product__body">
-                <div class="product__name skeleton" style="min-height:20px"></div>
-                <div class="product__brand skeleton" style="min-height:20px; max-width:200px; border-radius:5px;"></div>
-
-                <div class="product__rating skeleton" style="min-height:20px; max-width:250px; border-radius:5px;"></div>
-
-                <div class="product__price skeleton" style="min-height:20px; max-width:300px; margin-top:5px; border-radius:5px;"></div>
-
+                <div class="product__name skeleton height-20px" style="min-height:20px"></div>
+                <div class="product__brand skeleton max-width-200px height-20px border-radius-5px"></div>
+                <div class="product__rating skeleton max-width-250px height-20px border-radius-5px"></div>
+                <div class="product__price skeleton max-width-300px height-20px border-radius-5px margin-top-5px"></div>
                 <div class="product__selections">
                   <div class="row align-items-center gy-2">
                     <div class="col-xxl-2 col-md-4 col-sm-3">
-                      <div class="product__selection skeleton" style="min-height:30px; max-width:200px; border-radius:5px;"></div>
+                      <div class="product__selection skeleton max-width-200px height-30px border-radius-5px"></div>
                     </div>
                     <div class="col-xxl-10 col-md-8 col-sm-9">
                       <div class="product__options">
@@ -918,7 +913,7 @@ export function renderProductDetailSkeleton() {
                   </div>
                   <div class="row align-items-center gy-2">
                     <div class="col-xxl-2 col-md-4 col-sm-3">
-                      <div class="product__selection skeleton" style="min-height:30px; max-width:200px; border-radius:5px;"></div>
+                      <div class="product__selection skeleton max-width-200px height-30px border-radius-5px"></div>
                     </div>
                     <div class="col-xxl-10 col-md-8 col-sm-9">
                       <div class="product__options">
@@ -928,7 +923,7 @@ export function renderProductDetailSkeleton() {
                   </div>
                   <div class="row align-items-center gy-2">
                     <div class="col-xxl-2 col-md-4 col-sm-3">
-                      <div class="product__selection skeleton" style="min-height:30px; max-width:200px; border-radius:5px;"></div>
+                      <div class="product__selection skeleton max-width-200px height-30px border-radius-5px"></div>
                     </div>
                     <div class="col-xxl-10 col-md-8 col-sm-6">
                       <div class="product__quantity skeleton"></div>
@@ -937,8 +932,8 @@ export function renderProductDetailSkeleton() {
                 </div>
 
                 <div class="product__actions">
-                  <div class="product__action skeleton" style="min-height:40px; min-width:150px"; max-width:200px"></div>
-                  <div class="product__action skeleton" style="min-height:40px; min-width:150px"; max-width:200px"></div>
+                  <div class="product__action skeleton min-width-150px max-width-200px height-40px"></div>
+                  <div class="product__action skeleton min-width-150px max-width-200px height-40px"></div>
                 </div>
               </div>
             </div>
@@ -946,15 +941,15 @@ export function renderProductDetailSkeleton() {
         </div>
         <div class="product__wrapper">
           <div class="product__infor">
-            <h3 class="skeleton" style="min-height:25px; max-width:300px; border-radius:5px;"></h3>
-            <div class="skeleton" style="min-height:20px; max-width:100%; border-radius:5px;"></div>
-            <div class="skeleton" style="min-height:20px; max-width:100%; border-radius:5px; margin-top:5px;"></div>
-            <div class="skeleton" style="min-height:20px; max-width:100%; border-radius:5px; margin-top:5px;"></div>
+            <h3 class="skeleton max-width-300px height-25px border-radius-5px"></h3>
+            <div class="skeleton height-20px border-radius-5px"></div>
+            <div class="skeleton height-20px border-radius-5px margin-top-5px"></div>
+            <div class="skeleton height-20px border-radius-5px margin-top-5px"></div>
           </div>
         </div>
         <div class="product__wrapper">
           <div class="product__testimonials">
-            <h3 class="skeleton" style="min-height:25px; max-width:300px; border-radius:5px;"></h3>
+            <h3 class="skeleton max-width-300px height-25px border-radius-5px"></h3>
             <div class="product__testi-wrapper">
               ${[...Array(2)]
                 .map(
@@ -963,14 +958,14 @@ export function renderProductDetailSkeleton() {
                   <div class="product__feedback-header">
                     <div class="product__feedback-avt skeleton"></div>
                     <div class="product__feedback-content">
-                      <p class="product__feedback-name skeleton" style="min-height:20px; min-width:150px"; max-width:200px; border-radius:5px;"></p>
-                      <div class="product__feedback-rating skeleton" style="min-height:20px; min-width:100px"; max-width:100px; border-radius:5px;"></div>
-                      <div class="product__feedback-date skeleton" style="min-height:20px; min-width:100px"; max-width:100px; border-radius:5px;"></div>
+                      <p class="product__feedback-name skeleton width-200px height-20px border-radius-5px"></p>
+                      <div class="product__feedback-rating skeleton width-150px height-20px border-radius-5px"></div>
+                      <div class="product__feedback-date skeleton width-100px height-20px border-radius-5px"></div>
                     </div>
                   </div>
-                  <div class="skeleton" style="min-height:20px; border-radius:5px; margin-bottom:5px;"></div>
-                  <div class="skeleton" style="min-height:20px; border-radius:5px; margin-bottom:5px;"></div>
-                  <div class="skeleton" style="min-height:20px; border-radius:5px;"></div>
+                  <div class="skeleton height-20px border-radius-5px margin-bottom-5px"></div>
+                  <div class="skeleton height-20px border-radius-5px margin-bottom-5px"></div>
+                  <div class="skeleton height-20px border-radius-5px"></div>
                 </div>
                 `,
                 )
@@ -981,9 +976,9 @@ export function renderProductDetailSkeleton() {
         </div>
         <div class="product__wrapper">
           <div class="product__same-brand">
-            <h3 class="skeleton" style="min-height:25px; max-width:300px; border-radius:5px;"></h3>
+            <h3 class="skeleton max-width-300px height-25px border-radius-5px"></h3>
             <div class="row mt-2 gy-4 justify-content-center">
-              ${[...Array(6)].map(() => renderProdCardSkeleton("col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("")}
+              ${[...Array(12)].map(() => renderProdCardSkeleton("col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("")}
             </div>
           <div>
         </div>
@@ -997,15 +992,76 @@ function renderProdCardSkeleton(className) {
     <div class="${className}">
       <div class="prod__card">
         <div class="prod__thumb">
-          <a class="skeleton" style="aspect-ratio:4/3; border-radius:10px;"></a>
+          <a class="skeleton max-width-100 border-radius-10px aspect-ratio-4-3"></a>
         </div>
         <div class="prod__content">
-          <div class="skeleton" style="height:20px; max-width:200px; border-radius:5px;"></div>
-          <p class="prod__brand skeleton" style="height:18px; max-width:100px; margin-top:5px; border-radius:5px;"></p>
-          <div class="prod__price skeleton" style="height:20px; max-width:250px; border-radius:5px;"></div>
-          <div class="prod__rating skeleton" style="height:18px; max-width:150px; margin-top:5px; border-radius:5px;"></div>
+          <div class="skeleton max-width-200px height-20px border-radius-5px"></div>
+          <p class="prod__brand skeleton max-width-100px height-18px border-radius-5px margin-top-5px"></p>
+          <div class="prod__price skeleton max-width-250px height-20px border-radius-5px"></div>
+          <div class="prod__rating skeleton max-width-150px height-18px border-radius-5px margin-top-5px"></div>
         </div>
       </div>
+    </div>
+  `;
+}
+
+export function renderProductHomePagination(currentPage, totalPages) {
+  const pages = [];
+
+  if (totalPages == 0) return "";
+
+  pages.push(
+    `<button class="pagination__item pagination__first" data-page="${currentPage == 1 ? "" : 1}"><i class="ri-arrow-left-double-fill"></i></button>`,
+  );
+  pages.push(
+    `<button class="pagination__item pagination__prev" data-page="${currentPage == 1 ? "" : currentPage - 1}"><i class="ri-skip-left-line"></i></button>`,
+  );
+
+  // luôn có trang đầu
+  pages.push(
+    `<button class="pagination__item pagination__number${currentPage == 1 ? " pagination__number--active" : ""}" data-page="1">1</button>`,
+  );
+
+  // nếu current > 4 thì thêm ...
+  if (currentPage > 4) {
+    pages.push(
+      `<button class="pagination__item pagination__dot" data-page="${Math.max(1, currentPage - 5)}">...</button>`,
+    );
+  }
+
+  // các trang quanh current
+  for (let i = currentPage - 2; i <= currentPage + 2; i++) {
+    if (i > 1 && i < totalPages) {
+      pages.push(
+        `<button class="pagination__item pagination__number${currentPage == i ? " pagination__number--active" : ""}" data-page="${i}">${i}</button>`,
+      );
+    }
+  }
+
+  // nếu current < total - 3 thì thêm ...
+  if (currentPage < totalPages - 3) {
+    pages.push(
+      `<button class="pagination__item pagination__dot" data-page="${Math.min(totalPages, currentPage + 5)}">...</button>`,
+    );
+  }
+
+  // luôn có trang cuối
+  if (totalPages > 1) {
+    pages.push(
+      `<button class="pagination__item pagination__number${currentPage == totalPages ? " pagination__number--active" : ""}" data-page="${totalPages}">${totalPages}</button>`,
+    );
+  }
+
+  pages.push(
+    `<button class="pagination__item pagination__next" data-page="${currentPage == totalPages ? "" : currentPage + 1}"><i class="ri-skip-right-line"></i></button>`,
+  );
+  pages.push(
+    `<button class="pagination__item pagination__last" data-page="${currentPage == totalPages ? "" : totalPages}"><i class="ri-arrow-right-double-fill"></i></button>`,
+  );
+
+  return `
+    <div class="pagination">
+      ${pages.join("")}
     </div>
   `;
 }
