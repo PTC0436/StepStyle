@@ -855,7 +855,7 @@ export function renderProductHomeSkeleton() {
             </div>
             
             <div class="products__list">
-              <div class="row mt-sm-2 mt-1 justify-content-center gy-md-4 gy-2">
+              <div class="row mt-sm-2 mt-1 gy-md-4 gy-2">
                 ${[...Array(8)]
                   .map(() =>
                     renderProdCardSkeleton(
