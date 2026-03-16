@@ -30,7 +30,7 @@ export async function renderProductHome({
             ${renderProductHomeConstraint()}
             
             <div class="products__list">
-              <div class="row mt-sm-2 mt-1 justify-content-center gy-md-4 gy-2">
+              <div class="row mt-sm-2 mt-1 gy-md-4 gy-2">
                 ${
                   data
                     ?.map((item) =>
@@ -729,7 +729,7 @@ async function renderProductDetailFamiliar(similarProducts = []) {
   return `
     <div class="product__same-brand">
       <h3>Sản phẩm tương tự</h3>
-      <div class="row mt-2 gy-4 justify-content-center">
+      <div class="row mt-2 gy-4">
         ${similarProducts?.map((prod) => renderProductCard(prod, "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1")).join("") ?? ""}
       </div>
     <div>
