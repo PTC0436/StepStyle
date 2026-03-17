@@ -338,7 +338,7 @@ function renderProductCard(data, className) {
         <div class="prod__thumb">
           <a href=${PRODUCT_DOMAIN + "#/" + data.id}><img src=${data.thumbnail} alt="${data.name}" loading="lazy"/></a>
           <div class="prod__badges">
-            <span class='prod__badge prod__badge--hot'>HOT</span>
+            ${data.tags?.includes("Hot") ? `<span class='prod__badge prod__badge--hot'>HOT</span>` : ""}
             ${discountPercentage < 0 ? `<span class='prod__badge prod__badge--sale'>${discountPercentage}%</span>` : ""}
           </div>  
           <div class="prod__add"><i class="ri-shopping-cart-2-fill"></i></div>
