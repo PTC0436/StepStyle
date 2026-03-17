@@ -856,7 +856,7 @@ export function renderProductHomeSkeleton() {
             
             <div class="products__list">
               <div class="row mt-sm-2 mt-1 gy-md-4 gy-2">
-                ${[...Array(8)]
+                ${[...Array(12)]
                   .map(() =>
                     renderProdCardSkeleton(
                       "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1",
