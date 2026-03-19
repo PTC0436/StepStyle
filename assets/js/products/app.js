@@ -18,6 +18,12 @@ import setUpPagination from "./setUpPagination.js";
 async function render() {
   //<!--=============== AOS INIT ===============-->
   AOS.init();
+
+  const navMenu = document.querySelector(".nav__menu");
+  const navToggle = document.querySelector(".nav__toggle");
+  navMenu.classList.remove("show-menu");
+  navToggle.classList.remove("show-icon");
+
   const app = document.querySelector("#app");
   const { path, query } = getHashPath();
   const match = matchRoute(path);
