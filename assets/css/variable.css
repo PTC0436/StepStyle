@@ -48,7 +48,7 @@
 }
 
 :root {
-  --bg-light: hsl(350, 60%, 98%);
+  /* --bg-light: hsl(350, 60%, 98%);
   --bg: hsl(350, 55%, 95%);
   --bg-dark: hsl(350, 45%, 88%);
 
@@ -58,14 +58,14 @@
   --border: hsl(350, 20%, 75%);
   --border-muted: hsl(350, 15%, 85%);
 
-  --primary: hsl(345, 75%, 70%);
+  --primary: hsl(345, 89%, 82%);
   --secondary: hsl(335, 65%, 75%);
-  --tertiary: hsl(5, 70%, 78%);
-  --primary: hsl(345, 55%, 65%);
+  --tertiary: hsl(5, 70%, 78%); */
+  /* --primary: hsl(345, 55%, 65%);
   --secondary: hsl(340, 45%, 72%);
-  --tertiary: hsl(8, 50%, 75%);
+  --tertiary: hsl(8, 50%, 75%); */
 
-  --highlight: hsl(0, 0%, 100%);
+  /* --highlight: hsl(0, 0%, 100%);
 
   --danger: hsl(2, 65%, 63%);
   --warning: hsl(25, 70%, 72%);
@@ -76,11 +76,11 @@
   --star: hsl(340, 85%, 75%);
 
   --box-sd: rgba(245, 175, 175, 0.25) 0px 8px 24px;
-  --text-sd: rgba(160, 90, 110, 0.35) 0px 2px 6px;
+  --text-sd: rgba(160, 90, 110, 0.35) 0px 2px 6px; */
 }
 
 :root {
-  /* --bg-light: #fcf8f8;
+  --bg-light: #fcf8f8;
   --bg: #fbefef;
   --bg-dark: #f9dfdf;
 
@@ -105,5 +105,5 @@
   --star: hsl(340, 85%, 70%);
 
   --box-sd: rgba(245, 175, 175, 0.418) 0px 10px 30px;
-  --text-sd: rgba(160, 90, 110, 0.35) 0px 2px 6px; */
+  --text-sd: rgba(160, 90, 110, 0.35) 0px 2px 6px;
 }

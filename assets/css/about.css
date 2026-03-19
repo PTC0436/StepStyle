@@ -27,7 +27,13 @@ main {
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 20px 0;
-  background: linear-gradient(to right, #ff85c1, #f5afaf, #f9dfdf, #fbefef);
+  background: linear-gradient(
+    to right,
+    var(--primary),
+    var(--tertiary),
+    var(--bg-dark),
+    var(--bg)
+  );
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -37,14 +43,14 @@ main {
   animation: neon-blink 1.5s ease-in-out infinite;
 }
 body {
-  background: linear-gradient(to right, #fdf1f3, #ffffff, #fdf1f3);
+  background: linear-gradient(to right, var(--bg), var(--bg-light), var(--bg));
 }
 
 .history,
 .vision,
 .giatri,
 .containerreview {
-  background-color: #f9dfdf;
+  background-color: var(--primary);
   padding: 30px;
   border-radius: 10px;
 }
@@ -219,7 +225,7 @@ body {
 .review-section h2 {
   font-size: 28px;
   margin-bottom: 50px;
-  color: #b03060;
+  color: var(--secondary);
 }
 .review-1,
 .review-2,
@@ -243,7 +249,7 @@ body {
 .review-text {
   font-size: 15px;
   line-height: 1.6;
-  color: #444;
+  color: var(--text-muted);
   margin-bottom: 20px;
 }
 
@@ -255,11 +261,11 @@ body {
 
 .name {
   font-weight: bold;
-  color: #b03060;
+  color: var(--secondary);
 }
 
 .stars {
-  color: #ffb400;
+  color: var(--star);
 }
 /*responsive*/
 @media (max-width: 992px) {
@@ -319,5 +325,5 @@ body {
 
 .review-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--box-sd);
 }

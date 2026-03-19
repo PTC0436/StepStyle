@@ -1,7 +1,9 @@
+@import url(variable.css);
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #fcf8f8;
+  background-color: var(--bg-light);
 }
 
 .logo {
@@ -13,16 +15,16 @@ body {
 .banner {
   text-align: center;
   padding: 60px 20px;
-  background-color: #fbefef;
+  background-color: var(--bg);
 }
 
 .banner h2 {
-  color: #f5afaf;
+  color: var(--primary);
   font-size: 32px;
 }
 
 .banner button {
-  background-color: #f5afaf;
+  background-color: var(--primary);
   border: none;
   padding: 12px 25px;
   color: white;
@@ -32,7 +34,7 @@ body {
 }
 
 .banner button:hover {
-  background-color: #f9dfdf;
+  background-color: var(--tertiary);
   color: #333;
 }
 
@@ -57,7 +59,7 @@ body {
 }
 
 .product-card:hover {
-  background-color: #fbefef; /* hồng nhạt */
+  background-color: var(--bg); /* hồng nhạt */
   transform: translateY(-5px);
 }
 
@@ -69,7 +71,7 @@ body {
 }
 
 .product-card h3 {
-  color: #f5afaf;
+  color: var(--primary);
 }
 
 .price {
@@ -78,12 +80,12 @@ body {
 
 .old-price {
   text-decoration: line-through;
-  color: #999;
+  color: var(--text-muted);
   margin-right: 8px;
 }
 
 .new-price {
-  color: #f5afaf;
+  color: var(--primary);
   font-weight: bold;
 }
 
@@ -93,7 +95,7 @@ body {
   margin: 30px auto;
   overflow: hidden;
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(245, 175, 175, 0.25);
+  box-shadow: var(--box-sd);
 }
 
 .slides {

@@ -1,7 +1,7 @@
 .contact-section {
   margin: 0;
   font-family: Arial;
-  background: #fcf8f8;
+  background: var(--bg-light);
 }
 
 .contact-section {
@@ -10,7 +10,7 @@
 }
 
 .subtitle {
-  color: #777;
+  color: var(--text-muted);
   margin-bottom: 30px;
 }
 
@@ -23,11 +23,11 @@
 
 .contact-info,
 .contact-form {
-  background: #f9dfdf;
+  background: var(--primary);
   padding: 20px;
   border-radius: 10px;
   width: 350px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--box-sd);
   transition: 0.3s;
 }
 
@@ -42,7 +42,7 @@
   padding: 10px;
   margin-top: 10px;
   border-radius: 6px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--bg);
 }
 
 .contact-section button {
@@ -50,7 +50,7 @@
   width: 100%;
   padding: 12px;
   border: none;
-  background: #f5afaf;
+  background: var(--tertiary);
   color: white;
   border-radius: 6px;
   font-weight: bold;
@@ -58,7 +58,7 @@
 }
 
 .contact-section button:hover {
-  background: #e99696;
+  background: var(--secondary);
 }
 
 .error {
