@@ -23,7 +23,7 @@
 
 .contact-info,
 .contact-form {
-  background: var(--primary);
+  background: var(--bg-dark);
   padding: 20px;
   border-radius: 10px;
   width: 350px;

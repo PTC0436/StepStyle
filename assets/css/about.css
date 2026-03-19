@@ -50,7 +50,7 @@ body {
 .vision,
 .giatri,
 .containerreview {
-  background-color: var(--primary);
+  background-color: var(--bg-dark);
   padding: 30px;
   border-radius: 10px;
 }
