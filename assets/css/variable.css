@@ -104,6 +104,6 @@
   --sale: hsl(120, 45%, 55%);
   --star: hsl(340, 85%, 70%);
 
-  --box-sd: rgba(245, 175, 175, 0.418) 0px 10px 30px;
+  --box-sd: rgba(245, 175, 175, 0.192) 0px 5px 5px;
   --text-sd: rgba(160, 90, 110, 0.35) 0px 2px 6px;
 }
