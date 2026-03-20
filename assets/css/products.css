@@ -403,11 +403,12 @@
   background-color: var(--sale);
 }
 .prod__add {
-  width: 40px;
+  width: 44px;
   height: auto;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.297);
+  border: 1px solid var(--border);
+  background-color: rgba(255, 255, 255, 0.507);
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -416,6 +417,11 @@
   font-size: 18px;
   color: var(--text);
 }
+
+.prod__add i {
+  line-height: 1;
+}
+
 .prod__content {
   padding: 20px 15px;
 }
