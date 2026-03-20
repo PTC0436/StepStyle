@@ -334,14 +334,14 @@ function renderProductCard(data, className) {
 
   return `
     <div class="${className}">
-      <div class="prod__card">
+      <div class="prod__card" data-id="${data.id}">
         <div class="prod__thumb">
           <a href=${PRODUCT_DOMAIN + "#/" + data.id}><img src=${data.thumbnail} alt="${data.name}" loading="lazy"/></a>
           <div class="prod__badges">
             ${data.tags?.includes("Hot") ? `<span class='prod__badge prod__badge--hot'>HOT</span>` : ""}
             ${discountPercentage < 0 ? `<span class='prod__badge prod__badge--sale'>${discountPercentage}%</span>` : ""}
           </div>  
-          <div class="prod__add"><i class="ri-shopping-cart-2-fill"></i></div>
+          <div class="prod__add" data-id="${data.id}" data-bs-toggle="modal" data-bs-target="#addToCartModal"><i class="ri-shopping-cart-2-fill"></i></div>
         </div>
         <div class="prod__content">
           <a href=${PRODUCT_DOMAIN + "#/" + data.id}><p class="prod__name">${data.name}</p></a>
@@ -480,9 +480,9 @@ function renderProductDetailMain(product) {
               </div>
               <div class="col-xxl-10 col-md-8 col-sm-6">
                 <div class='product__quantity'>
-                  <button class="product__quantity-btn" btn-qty-increase>+</button>
+                  <button class="product__quantity-btn"><i class="ri-subtract-fill"></i></button>
                   <div class="product__quantity-content">1</div>
-                  <button class="product__quantity-btn" btn-qty-decrease>-</button>
+                  <button class="product__quantity-btn" data-max=${product.stock}><i class="ri-add-fill"></i></button>
                 </div>
               </div>
             </div>

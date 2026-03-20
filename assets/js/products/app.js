@@ -7,14 +7,14 @@ import { setUpSort, setUpSortItem } from "./sort.js";
 import { setUpConstraint } from "./constraint.js";
 import setUpScrollTop from "/assets/js/scroll-top/scroll-top.js";
 import {
-  setUpProductMain,
-  setUpProductMainOptions,
-} from "./setUpProductMain.js";
+  setUpProductOptions,
+  setUpProductSelection,
+} from "./setUpProductSelection.js";
 import setUpBackButton from "./setUpBackButton.js";
 import { renderPageNotFound404 } from "./products.js";
-import setUpNavLink from "../header/setUpNavLink.js";
 import setUpPagination from "./setUpPagination.js";
 import closeHeaderMenu from "../header/closeHeaderMenu.js";
+import setUpAddToCartOfProdCard from "./setUpAddToCartOfProdCard.js";
 
 async function render() {
   //<!--=============== AOS INIT ===============-->
@@ -48,7 +48,7 @@ async function render() {
     }
     case "PRODUCT_DETAIL": {
       setUpSlider();
-      setUpProductMainOptions();
+      setUpProductOptions();
       break;
     }
   }
@@ -71,6 +71,7 @@ setUpFilter();
 setUpSearch();
 setUpSort();
 setUpConstraint();
-setUpProductMain();
+setUpProductSelection();
 setUpBackButton();
 setUpPagination();
+setUpAddToCartOfProdCard();

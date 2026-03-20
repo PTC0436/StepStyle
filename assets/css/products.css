@@ -168,16 +168,12 @@
   aspect-ratio: 1;
   border: 1px solid var(--border);
   border-radius: 50%;
-  position: relative;
-  z-index: 1;
-  display: grid;
-  place-items: center;
 }
 .product__color:hover {
   box-shadow: var(--primary) 0px 2px 8px 0px;
 }
 .product__color--active {
-  box-shadow: var(--primary) 0px 2px 8px 1px;
+  box-shadow: var(--primary) 0px 2px 8px 2px;
 }
 .product__size {
   width: 40px;
@@ -185,8 +181,6 @@
   aspect-ratio: 4/3;
   border: 1px solid var(--border);
   border-radius: 10px;
-  position: relative;
-  z-index: 1;
   display: grid;
   place-items: center;
 }
@@ -222,6 +216,8 @@
   height: 30px;
   border: none;
   background-color: transparent;
+  display: grid;
+  place-items: center;
 }
 .product__quantity-btn:hover {
   background-color: var(--bg);
@@ -1214,11 +1210,190 @@
   }
 }
 
+#addToCartModal {
+  .modal-title {
+    font-weight: 600;
+    font-size: 26px;
+  }
+
+  .modal__selection {
+    display: flex;
+    gap: 10px;
+  }
+
+  .modal__img {
+    width: 50%;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+
+  .modal__infor {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal__price {
+    font-size: 24px;
+    color: var(--primary);
+  }
+
+  .modal__price::after {
+    content: attr(data-currency);
+    font-size: 22px;
+    margin-left: 5px;
+  }
+
+  .modal__selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+    align-items: center;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .modal__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .modal__color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+  }
+
+  .modal__color:hover,
+  .modal__color.modal__color--active {
+    box-shadow: var(--primary) 0px 2px 6px 2px;
+  }
+
+  .modal__size {
+    width: 40px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    line-height: 1;
+  }
+
+  .modal__size:hover,
+  .modal__size.modal__size--active {
+    background: var(--primary);
+  }
+
+  .modal__quantity {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 30px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .modal__quantity-btn {
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1;
+    border: none;
+    background-color: transparent;
+    display: grid;
+    place-items: center;
+    line-height: 1;
+  }
+
+  .modal__quantity-btn:hover {
+    background: var(--bg-dark);
+  }
+
+  .modal__quantity-content {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    border-left: 1px solid var(--border-muted);
+    border-right: 1px solid var(--border-muted);
+    line-height: 1;
+  }
+
+  .modal-footer {
+    .add {
+      background: var(--primary);
+      color: var(--bg-light);
+      font-weight: 700;
+    }
+    .add:hover {
+      background: var(--secondary);
+    }
+    .btn:nth-child(2) {
+      background: var(--border-muted);
+    }
+    .btn:nth-child(2):hover {
+      background: var(--bg-dark);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #addToCartModal {
+    .modal-title {
+      font-size: 20px;
+    }
+
+    .modal__price {
+      font-size: 19px;
+    }
+
+    .modal__price::after {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .modal__color {
+      width: 20px;
+      height: 20px;
+    }
+
+    .modal__size {
+      width: 27px;
+      height: 22px;
+      font-size: 14px;
+    }
+
+    .modal__quantity {
+      width: 100px;
+      height: 25px;
+    }
+  }
+}
+
 .skeleton {
   background: #bbbbbb;
   animation: skeleton-loading 1.2s infinite linear;
   display: block;
   border: none;
+  color: transparent;
   /* border-radius: 5px; */
 }
 
@@ -1369,4 +1544,10 @@
 
 .aspect-ratio-4-3 {
   aspect-ratio: 4/3;
+}
+
+@media (max-width: 992px) {
+  .modal-md {
+    max-width: 700px;
+  }
 }
