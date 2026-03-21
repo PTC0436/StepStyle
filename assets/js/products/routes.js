@@ -24,6 +24,13 @@ const routes = [
         const app = document.querySelector("#app");
         if (app) app.innerHTML = renderProductHomeSkeleton();
 
+        const notification = setTimeout(() => {
+          app.insertAdjacentHTML(
+            "afterbegin",
+            "<p>Vui lòng thông cảm do dùng server free của render nên sau 1 thời gian không có request nào server sẽ tạm đóng và khi có request sau khi đóng thì cần thời gian để server khởi đọng lại! Sẽ mất khoảng 10 phút hoặc ngắn hơn nếu đang giờ cao điểm! Sau khi server được khởi động lại lần đầu thì sẽ load nhanh hơn nhiều!</p>",
+          );
+        }, 30000);
+
         window.scrollTo({
           top: 0,
           behavior: "smooth",
@@ -46,6 +53,8 @@ const routes = [
           getGenderList(),
           getTagList(),
         ]);
+
+        clearTimeout(notification);
 
         // console.log(products);
         // console.log(brandList);
@@ -73,6 +82,13 @@ const routes = [
       const app = document.querySelector("#app");
       if (app) app.innerHTML = renderProductDetailSkeleton();
 
+      const notification = setTimeout(() => {
+        app.insertAdjacentHTML(
+          "afterbegin",
+          "<p>Vui lòng thông cảm do dùng server free của render nên sau 1 thời gian không có request nào server sẽ tạm đóng và khi có request sau khi đóng thì cần thời gian để server khởi đọng lại! Sẽ mất khoảng 10 phút hoặc ngắn hơn nếu đang giờ cao điểm! Sau khi server được khởi động lại lần đầu thì sẽ load nhanh hơn nhiều!</p>",
+        );
+      }, 30000);
+
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -83,6 +99,8 @@ const routes = [
         getReviewsByShoeId(params.id),
         getSimilarProducts(params.id, 6),
       ]);
+
+      clearTimeout(notification);
 
       if (!product) return renderPageNotFound404();
 
