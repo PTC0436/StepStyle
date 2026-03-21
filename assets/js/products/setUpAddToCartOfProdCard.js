@@ -1,3 +1,4 @@
+import addToCart from "./addToCart.js";
 import formatCurrency from "./formatCurrency.js";
 import { getProductById } from "./productsAPI.js";
 
@@ -56,12 +57,8 @@ const setUpAddToCartModal = () => {
 
     const add = e.target.closest("#addToCartModal .add");
     if (add) {
-      const colorChosen = document.querySelector(
-        "#addToCartModal .modal__color.modal__color--active",
-      )?.dataset.colorName;
-      const sizeChosen = document.querySelector(
-        "#addToCartModal .modal__size.modal__size--active",
-      )?.dataset.size;
+      const colorChosen = document.querySelector(".modal__color--active")
+        ?.dataset.colorName;
       if (!colorChosen) {
         Swal.fire({
           icon: "error",
@@ -69,6 +66,8 @@ const setUpAddToCartModal = () => {
         });
         return;
       }
+      const sizeChosen = document.querySelector(".modal__size--active")?.dataset
+        .size;
       if (!sizeChosen) {
         Swal.fire({
           icon: "error",
@@ -85,48 +84,20 @@ const setUpAddToCartModal = () => {
       const thumbnail = document
         .querySelector("#addToCartModal .modal__img img")
         ?.getAttribute("src");
-      let quantity = Number(
+      const quantity = Number(
         document.querySelector("#addToCartModal .modal__quantity-content")
           ?.innerHTML,
       );
 
-      const cart = JSON.parse(localStorage.getItem("cart")) ?? [];
-      const itemIndex = cart.findIndex(
-        (item) =>
-          item.id == add.dataset.id &&
-          item.colorChosen == colorChosen &&
-          item.sizeChosen == sizeChosen,
-      );
-      if (itemIndex == -1) {
-        let newCart = [
-          ...cart,
-          {
-            id: add.dataset.id,
-            name,
-            price,
-            thumbnail,
-            colorChosen,
-            sizeChosen,
-            quantity,
-          },
-        ];
-        localStorage.setItem(
-          "cart",
-          JSON.stringify(
-            newCart.sort((a, b) => {
-              const compareId = a.id.localeCompare(b.id);
-              return compareId
-                ? compareId
-                : a.colorChosen.localeCompare(b.colorChosen);
-            }),
-          ),
-        );
-      } else {
-        cart[itemIndex].quantity += quantity;
-        localStorage.setItem("cart", JSON.stringify(cart));
-      }
-
-      console.log(JSON.parse(localStorage.getItem("cart")));
+      addToCart({
+        id: add.dataset.id,
+        name,
+        price,
+        thumbnail,
+        colorChosen,
+        sizeChosen,
+        quantity,
+      });
 
       const modalEl = document.getElementById("addToCartModal");
       const modal = bootstrap.Modal.getInstance(modalEl);

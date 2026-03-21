@@ -70,7 +70,7 @@
 .product__slider-nav-item img:hover {
   scale: 1.05;
 }
-.product__name {
+.product__name-wrapper {
   display: flex;
   align-items: center;
   font-size: 26px;

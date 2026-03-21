@@ -411,6 +411,7 @@ function renderProductDetailMain(product) {
     <div class="row">
       <div class="col-md-5">
         <div class="product__images">
+          <div data-thumbnail="${product.thumbnail}"></div>
           <div class="product__slider-show slider slider-for">
             ${product.images.map((img) => `<div class="product__slider-show-item"><img src=${img} alt="${product.name}" /></div>`).join("")}
           </div>
@@ -421,12 +422,12 @@ function renderProductDetailMain(product) {
       </div>
       <div class="col-md-7">
         <div class="product__body">
-          <h3 class="product__name">
+          <h3 class="product__name-wrapper">
             <span class="product__badges">
-              <span class='product__badge product__badge--hot'>HOT</span>
+              ${product.tags.includes("Hot") ? `<span class='product__badge product__badge--hot'>HOT</span>` : ""}
               ${discountPercentage < 0 ? `<span class='product__badge product__badge--sale'>${discountPercentage}%</span>` : ""}
             </span>
-            ${product.name}
+            <span class="product__name">${product.name}</span>
           </h3>
           <p class="product__brand">${product.brand}</p>
 
@@ -480,9 +481,9 @@ function renderProductDetailMain(product) {
               </div>
               <div class="col-xxl-10 col-md-8 col-sm-6">
                 <div class='product__quantity'>
-                  <button class="product__quantity-btn"><i class="ri-subtract-fill"></i></button>
+                  <button class="product__quantity-btn decrease"><i class="ri-subtract-fill"></i></button>
                   <div class="product__quantity-content">1</div>
-                  <button class="product__quantity-btn" data-max=${product.stock}><i class="ri-add-fill"></i></button>
+                  <button class="product__quantity-btn increase" data-max=${product.stock}><i class="ri-add-fill"></i></button>
                 </div>
               </div>
             </div>
@@ -492,8 +493,8 @@ function renderProductDetailMain(product) {
             ${
               product.stock != 0
                 ? `
-              <button class="product__action">Thêm vào giỏ</button>
-              <button class="product__action">Mua ngay</button>
+              <button class="product__action add">Thêm vào giỏ</button>
+              <button class="product__action buy-now">Mua ngay</button>
               `
                 : `
                   <div class="product__out-of-stock">Hết hàng!!!</div>
