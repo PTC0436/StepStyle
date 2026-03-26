@@ -48,6 +48,19 @@ export async function renderProductHome({
         </div>
       </div>
     </div>
+    <section>
+      <div
+        class="modal fade"
+        id="addToCartModal"
+        tabindex="-1"
+        aria-labelledby="addToCartModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg modal-md modal-dialog-centered">
+          <div class="modal-content"></div>
+        </div>
+      </div>
+    </section>
   `;
 }
 
@@ -397,6 +410,19 @@ export async function renderProductDetail({
           </div>
         </div>
       </div >
+      <section>
+        <div
+          class="modal fade"
+          id="addToCartModal"
+          tabindex="-1"
+          aria-labelledby="addToCartModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg modal-md modal-dialog-centered">
+            <div class="modal-content"></div>
+          </div>
+        </div>
+      </section>
 		`;
 }
 
