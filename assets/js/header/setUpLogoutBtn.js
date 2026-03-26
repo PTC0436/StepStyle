@@ -6,9 +6,12 @@ const setUpLogoutBtn = () => {
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
 
-    alert("Đã đăng xuất!");
-
-    window.location.reload();
+    Swal.fire({
+      title: "Đăng xuất thành công!",
+      icon: "success",
+      timer: 3000,
+      timerProgressBar: true,
+    }).then(() => window.location.reload());
   });
 };
 

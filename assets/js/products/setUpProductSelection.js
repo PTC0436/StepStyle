@@ -47,6 +47,8 @@ export function setUpProductSelection() {
         Swal.fire({
           icon: "error",
           title: "Vui lòng chọn màu!",
+          timer: 2000,
+          timerProgressBar: true,
         });
         return;
       }
@@ -57,6 +59,8 @@ export function setUpProductSelection() {
         Swal.fire({
           icon: "error",
           title: "Vui lòng chọn size!",
+          timer: 2000,
+          timerProgressBar: true,
         });
         return;
       }

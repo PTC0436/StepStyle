@@ -63,6 +63,8 @@ const setUpAddToCartModal = () => {
         Swal.fire({
           icon: "error",
           title: "Vui lòng chọn màu!",
+          timer: 2000,
+          timerProgressBar: true,
         });
         return;
       }
@@ -72,6 +74,8 @@ const setUpAddToCartModal = () => {
         Swal.fire({
           icon: "error",
           title: "Vui lòng chọn size!",
+          timer: 2000,
+          timerProgressBar: true,
         });
         return;
       }
