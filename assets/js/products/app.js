@@ -1,20 +1,20 @@
-import matchRoute from "/assets/js/products/matchRoute.js";
-import getHashPath from "./getHashPath.js";
-import setUpSlider from "./setUpSlider.js";
-import { setUpFilter, setUpFilterItem } from "./filter.js";
-import { setUpSeachBar, setUpSearch } from "./search.js";
-import { setUpSort, setUpSortItem } from "./sort.js";
-import { setUpConstraint } from "./constraint.js";
+import matchRoute from "./utils/matchRoute.js";
+import getHashPath from "./utils/getHashPath.js";
+import setUpSlider from "./setUp/setUpSlider.js";
+import { setUpFilter, setUpFilterItem } from "./setUp/filter.js";
+import { setUpSeachBar, setUpSearch } from "./setUp/search.js";
+import { setUpSort, setUpSortItem } from "./setUp/sort.js";
+import { setUpConstraint } from "./setUp/constraint.js";
 import setUpScrollTop from "/assets/js/scroll-top/scroll-top.js";
 import {
   setUpProductOptions,
   setUpProductSelection,
-} from "./setUpProductSelection.js";
-import setUpBackButton from "./setUpBackButton.js";
-import { renderPageNotFound404 } from "./products.js";
-import setUpPagination from "./setUpPagination.js";
+} from "./setUp/setUpProductSelection.js";
+import setUpBackButton from "./setUp/setUpBackButton.js";
+import pageNotFound404 from "./render/pageNotFound404.js";
+import setUpPagination from "./setUp/setUpPagination.js";
 import closeHeaderMenu from "../header/closeHeaderMenu.js";
-import setUpAddToCartOfProdCard from "./setUpAddToCartOfProdCard.js";
+import setUpAddToCartOfProdCard from "./setUp/setUpAddToCartOfProdCard.js";
 
 async function render() {
   //<!--=============== AOS INIT ===============-->
@@ -25,19 +25,22 @@ async function render() {
   const app = document.querySelector("#app");
   const { path, query } = getHashPath();
   const match = matchRoute(path);
+
   if (!match) {
-    app.innerHTML = renderPageNotFound404();
+    app.innerHTML = pageNotFound404();
     return;
   }
   const { html, route } = await match.route.render({
     ...match.params,
     query,
   });
+
   if (!html) {
-    app.innerHTML = renderPageNotFound404();
+    app.innerHTML = pageNotFound404();
 
     return;
   }
+
   app.innerHTML = html;
   switch (route) {
     case "PRODUCT_HOME": {

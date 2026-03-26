@@ -1,5 +1,5 @@
-import updateQuery from "./updateQuery.js";
-import getHashPath from "./getHashPath.js";
+import updateQuery from "../utils/updateQuery.js";
+import getHashPath from "../utils/getHashPath.js";
 
 function handleClearAll() {
   updateQuery({
@@ -9,7 +9,8 @@ function handleClearAll() {
     sort: null,
     order: null,
     tags: [],
-    priceRange: null,
+    priceMin: null,
+    priceMax: null,
   });
 }
 

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         icon: "error",
         title: "Vui lòng điền đầy đủ thông tin!",
         showCloseButton: true,
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
       });
       loading?.classList.remove("btn-loading--shown");
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         icon: "error",
         title: "Email không hợp lệ!",
         showCloseButton: true,
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
       });
       loading?.classList.remove("btn-loading--shown");
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         title:
           "Password phải tối thiểu 8 ký tự, chứa ít nhất 1 chữ thường, 1 chữ hoa, 1 số và 1 ký tự đặc biệt",
         showCloseButton: true,
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
       });
       loading?.classList.remove("btn-loading--shown");
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         icon: "error",
         title: "Mật khẩu nhập lại không khớp!",
         showCloseButton: true,
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
       });
       loading?.classList.remove("btn-loading--shown");
@@ -79,8 +79,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         password,
         address,
       });
-
-      window.location.href = "/pages/login.html";
+      Swal.fire({
+        icon: "success",
+        title: "Đăng kí thành công!",
+        showCloseButton: true,
+        timer: 3000,
+        timerProgressBar: true,
+      }).then(() => (window.location.href = "/pages/login.html"));
     } catch (err) {
       loading?.classList.remove("btn-loading--shown");
       if (err.message === "Email already exists") {
@@ -94,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           confirmButtonText: "Đăng nhập",
           cancelButtonText: "Ở lại",
           showCloseButton: true,
-          timer: 2000,
+          timer: 3000,
           timerProgressBar: true,
         }).then((result) => {
           if (result.isConfirmed) {
@@ -107,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           title: "Đăng kí thất bại!",
           text: "Vui lòng thử lại!",
           showCloseButton: true,
-          timer: 2000,
+          timer: 3000,
           timerProgressBar: true,
         });
       }

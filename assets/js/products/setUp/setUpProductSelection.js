@@ -1,5 +1,5 @@
-import addToCart from "./addToCart.js";
-import getIdFromHash from "./getIdFromHash.js";
+import addToCart from "../utils/addToCart.js";
+import getIdFromHash from "../utils/getIdFromHash.js";
 
 export function setUpProductSelection() {
   document.addEventListener("click", (e) => {

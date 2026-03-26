@@ -1,6 +1,6 @@
-import addToCart from "./addToCart.js";
-import formatCurrency from "./formatCurrency.js";
-import { getProductById } from "./productsAPI.js";
+import addToCart from "../utils/addToCart.js";
+import formatCurrency from "../utils/formatCurrency.js";
+import { getProductById } from "../services/productsAPI.js";
 
 const setUpColor = () => {
   document.querySelectorAll(".modal__color")?.forEach((item) => {

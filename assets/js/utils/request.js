@@ -5,12 +5,7 @@ const TIMEOUT = 1000000;
 // TOKEN STORAGE
 //////////////////////////////
 
-const getAccessToken = () => localStorage.getItem("accessToken");
-const getRefreshToken = () => localStorage.getItem("refreshToken");
-
-export const saveAuth = ({ accessToken, refreshToken, user }) => {
-  localStorage.setItem("accessToken", accessToken);
-  localStorage.setItem("refreshToken", refreshToken);
+export const saveAuth = (user) => {
   localStorage.setItem("user", JSON.stringify(user));
 };
 
@@ -43,17 +38,10 @@ const fetchWithTimeout = (url, options, timeout = TIMEOUT) => {
 // CORE REQUEST
 //////////////////////////////
 
-const request = async (method, path, data = null, auth = false) => {
+const request = async (method, path, data = null) => {
   const headers = {
     "Content-Type": "application/json",
   };
-
-  if (auth) {
-    const token = getAccessToken();
-    if (token) {
-      headers["Authorization"] = `Bearer ${token}`;
-    }
-  }
 
   const options = {
     method,
@@ -85,26 +73,10 @@ const request = async (method, path, data = null, auth = false) => {
   }
 };
 
-//////////////////////////////
-// PUBLIC API
-//////////////////////////////
-
 export const api = {
   get: (path) => request("GET", path),
   post: (path, data) => request("POST", path, data),
   put: (path, data) => request("PUT", path, data),
   patch: (path, data) => request("PATCH", path, data),
   delete: (path) => request("DELETE", path),
-};
-
-//////////////////////////////
-// AUTH API
-//////////////////////////////
-
-export const apiAuth = {
-  get: (path) => request("GET", path, null, true),
-  post: (path, data) => request("POST", path, data, true),
-  put: (path, data) => request("PUT", path, data, true),
-  patch: (path, data) => request("PATCH", path, data, true),
-  delete: (path) => request("DELETE", path, null, true),
 };

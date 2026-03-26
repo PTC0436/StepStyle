@@ -18,7 +18,7 @@ loginForm.addEventListener("submit", async (e) => {
       icon: "error",
       title: "Vui lòng nhập email và mật khấu!",
       showCloseButton: true,
-      timer: 2000,
+      timer: 3000,
       timerProgressBar: true,
     });
     loading?.classList.remove("btn-loading--shown");
@@ -28,13 +28,13 @@ loginForm.addEventListener("submit", async (e) => {
   try {
     const res = await api.post("/api/auth/login", { email, password });
 
-    saveAuth(res);
+    saveAuth(res.user);
 
     Swal.fire({
       title: "Đăng nhập thành công!",
       icon: "success",
       showCloseButton: true,
-      timer: 2000,
+      timer: 3000,
       timerProgressBar: true,
     }).then(() => (window.location.href = "/index.html"));
   } catch (err) {

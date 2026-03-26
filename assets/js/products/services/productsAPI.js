@@ -1,6 +1,6 @@
 // import products from "/database/products.js";
 
-import { api } from "../utils/request.js";
+import { api } from "../../utils/request.js";
 
 // export const getProductsList = async (filter) => {
 //   // console.log(filter);
@@ -92,8 +92,6 @@ export const getProductsList = async (filter = {}) => {
   );
 
   const query = new URLSearchParams(cleanFilter).toString();
-
-  // console.log(query);
 
   const res = await api.get(`/api/shoes?${query}`);
   return res;

@@ -1,5 +1,5 @@
-import getHashPath from "./getHashPath.js";
-import updateQuery from "./updateQuery.js";
+import getHashPath from "../utils/getHashPath.js";
+import updateQuery from "../utils/updateQuery.js";
 
 const setUpPagination = () => {
   document.addEventListener("click", (e) => {
