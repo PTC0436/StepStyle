@@ -1,4 +1,5 @@
 import setUpLogoutBtn from "./setUpLogoutBtn.js";
+import setUpNavCartNotification from "./setUpNavCartNotification.js";
 import setUpNavLink from "./setUpNavLink.js";
 
 const setUpHeader = async () => {
@@ -31,6 +32,7 @@ const setUpHeader = async () => {
       }
     }
   }
+  setUpNavCartNotification();
   setUpNavLink();
 };
 

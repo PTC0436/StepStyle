@@ -134,6 +134,21 @@ a {
   color: white;
 }
 
+.nav__cart-notification {
+  position: absolute;
+  top: 15px;
+  left: 80%;
+  display: grid;
+  place-items: center;
+  line-height: 1.1;
+  color: var(--primary);
+  background: var(--bg-light);
+  font-size: 10px;
+  border-radius: 7px;
+  padding: 3px;
+  margin: 0;
+}
+
 .nav__user {
   display: flex;
   flex-wrap: nowrap;
@@ -215,6 +230,9 @@ a {
   .nav__list {
     background-color: var(--black-color);
     padding-top: 0rem;
+  }
+  .nav__cart-notification {
+    left: 110px;
   }
   .dropdown__link {
     width: 100vw;

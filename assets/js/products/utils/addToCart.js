@@ -1,3 +1,5 @@
+import setUpNavCartNotification from "../../header/setUpNavCartNotification.js";
+
 const addToCart = (newItem) => {
   if (!newItem) return;
 
@@ -34,6 +36,7 @@ const addToCart = (newItem) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
+  setUpNavCartNotification();
   console.log(JSON.parse(localStorage.getItem("cart")));
 };
 
