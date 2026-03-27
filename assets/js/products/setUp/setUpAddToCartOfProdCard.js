@@ -105,10 +105,23 @@ const setUpAddToCartModal = () => {
 
       const modalEl = document.getElementById("addToCartModal");
       const modal = bootstrap.Modal.getInstance(modalEl);
-      Swal.fire({
-        title: "Đã thêm vào giỏ hàng!",
+      modal.hide();
+
+      Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      }).fire({
         icon: "success",
-      }).then(() => modal.hide());
+        title: "Thêm vào giỏ hàng thành công!",
+      });
     }
   });
 };

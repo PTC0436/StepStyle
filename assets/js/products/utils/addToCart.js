@@ -13,7 +13,7 @@ const addToCart = (newItem) => {
   );
 
   if (itemIndex === -1) {
-    // Nếu chưa tồn tại → thêm mới sản phẩm vào giỏ hàng
+    // Nếu chưa tồn tại thì thêm mới sản phẩm vào giỏ hàng
     const newCart = [...cart, newItem];
 
     // Sắp xếp lại để các sản phẩm cùng loại nằm gần nhau
@@ -29,7 +29,7 @@ const addToCart = (newItem) => {
       ),
     );
   } else {
-    // Nếu đã tồn tại → tăng số lượng
+    // Nếu đã tồn tại thì tăng số lượng
     cart[itemIndex].quantity += newItem.quantity;
     localStorage.setItem("cart", JSON.stringify(cart));
   }

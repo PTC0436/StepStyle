@@ -21,14 +21,6 @@ const routes = [
         const app = document.querySelector("#app");
         if (app) app.innerHTML = productHomeSkeleton();
 
-        // const notification = setTimeout(() => {
-        //   const p = document.querySelector("#app .products");
-        //   p.insertAdjacentHTML(
-        //     "afterbegin",
-        //     "<p>Vui lòng thông cảm do dùng server free của render nên sau 1 thời gian không có request nào server sẽ tạm đóng và khi có request sau khi đóng thì cần thời gian để server khởi đọng lại! Sẽ mất khoảng 10 phút hoặc ngắn hơn nếu đang giờ cao điểm! Sau khi server được khởi động lại lần đầu thì sẽ load nhanh hơn nhiều!</p>",
-        //   );
-        // }, 3000);
-
         window.scrollTo({
           top: 0,
           behavior: "smooth",
@@ -52,7 +44,6 @@ const routes = [
           getTagList(),
         ]);
 
-        // clearTimeout(notification);
         return {
           html: productHome({
             products,
@@ -60,7 +51,6 @@ const routes = [
             genderList,
             tagList,
           }),
-          // html: productHomeSkeleton(),
           route: "PRODUCT_HOME",
         };
       } catch (err) {
@@ -75,14 +65,6 @@ const routes = [
       const app = document.querySelector("#app");
       if (app) app.innerHTML = productDetailSkeleton();
 
-      // const notification = setTimeout(() => {
-      //   const p = document.querySelector("#app .product");
-      //   p.insertAdjacentHTML(
-      //     "afterbegin",
-      //     "<p>Vui lòng thông cảm do dùng server free của render nên sau 1 thời gian không có request nào server sẽ tạm đóng và khi có request sau khi đóng thì cần thời gian để server khởi đọng lại! Sẽ mất khoảng 10 phút hoặc ngắn hơn nếu đang giờ cao điểm! Sau khi server được khởi động lại lần đầu thì sẽ load nhanh hơn nhiều!</p>",
-      //   );
-      // }, 30000);
-
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -94,17 +76,10 @@ const routes = [
         getSimilarProducts(params.id, 6),
       ]);
 
-      // clearTimeout(notification);
-
       if (!product) return pageNotFound404();
 
-      // console.log(product);
-      // console.log(reviews);
-      // console.log(similarProducts);
-
       return {
-        html: await productDetail({ product, reviews, similarProducts }),
-        // html: productDetailSkeleton(),
+        html: productDetail({ product, reviews, similarProducts }),
         route: "PRODUCT_DETAIL",
       };
     },

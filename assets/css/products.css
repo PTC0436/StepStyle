@@ -1,5 +1,6 @@
 @import url(variable.css);
 
+/* Để cho trang tối thiểu là full chiều cao màn hình */
 #app {
   flex-grow: 1;
   display: flex;
@@ -8,6 +9,8 @@
 #app * {
   font-family: var(--font-family);
 }
+
+/* Css cho trang chi tiết sản phẩm */
 
 .product {
   width: 100%;
@@ -349,6 +352,9 @@
     padding: 10px 0;
   }
 }
+
+/* Css prodCard (Thẻ sản nhỏ) */
+
 .prod__card {
   width: 100%;
   height: 100%;
@@ -521,6 +527,9 @@
     font-size: 10px;
   }
 }
+
+/* Trang product list */
+
 .products {
   background-color: var(--bg);
   flex-grow: 1;
@@ -867,12 +876,14 @@
   -webkit-text-fill-color: transparent;
   font-weight: 900;
   font-size: 50px;
+  text-align: center;
 }
 
 .products__no-product span {
   color: var(--text);
   font-weight: 500;
   font-size: 20px;
+  text-align: center;
 }
 
 .pagination {
@@ -918,13 +929,15 @@
     opacity: 1;
   }
 }
+
+/* Custom lại class của bootstrap 5 trong trang product  */
 @media (min-width: 1399.98px) {
   .products .container-xxl {
     max-width: 1600px;
   }
 }
 
-/* NOTFOUND 404 */
+/* Trang Not Found 404 */
 .not-found {
   width: 100%;
   height: 100%;
@@ -947,7 +960,6 @@
   .error-container {
     text-align: center;
     font-size: 106px;
-    /* font-family: "Catamaran", sans-serif; */
     font-weight: 800;
     margin: 40px 0px;
     padding: 0;
@@ -977,7 +989,6 @@
         transparent 77%,
         transparent 100%
       ),
-      /* linear-gradient(to right, #d89ca4, #e27b7e); */
       linear-gradient(to right, var(--primary), var(--hot));
   }
   .error-container > span.four:before,
@@ -1007,15 +1018,14 @@
         transparent 51%,
         transparent 100%
       ),
-      /* linear-gradient(to top, #99749d, #b895ab, #cc9aa6, #d7969e, #e0787f); */
       linear-gradient(
-          to top,
-          var(--secondary),
-          var(--bg-dark),
-          var(--tertiary),
-          var(--primary),
-          var(--hot)
-        );
+        to top,
+        var(--secondary),
+        var(--bg-dark),
+        var(--tertiary),
+        var(--primary),
+        var(--hot)
+      );
   }
   .error-container > span.four:after {
     width: 137px;
@@ -1023,14 +1033,6 @@
     transform: rotate(-49.5deg);
     left: -18px;
     bottom: 36px;
-    /* background: linear-gradient(
-      to right,
-      #99749d,
-      #b895ab,
-      #cc9aa6,
-      #d7969e,
-      #e0787f
-    ); */
     background: linear-gradient(
       to right,
       var(--secondary),
@@ -1165,7 +1167,7 @@
   }
 }
 
-/* BACK BUTTON */
+/* Nút back về trang trước */
 
 .btn-back {
   background: var(--bg-light);
@@ -1209,6 +1211,8 @@
     }
   }
 }
+
+/* Modal khi bấm nút giỏ hàng trên prodCard */
 
 #addToCartModal {
   .modal-title {
@@ -1388,6 +1392,8 @@
   }
 }
 
+/* Các class để css skeleton */
+
 .skeleton {
   background: #bbbbbb;
   animation: skeleton-loading 1.2s infinite linear;
@@ -1414,6 +1420,8 @@
     opacity: 0.6;
   }
 }
+
+/* Các class để hỗ trợ skeleton */
 
 .height-18px {
   height: 18px;
