@@ -175,7 +175,8 @@
 }
 
 .footer__social-item:hover {
-  color: var(--primary);
+  color: var(--bg-light);
+  background: var(--primary);
 }
 
 .footer__payment {
