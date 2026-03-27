@@ -1,5 +1,5 @@
 import getHashPath from "../../utils/getHashPath.js";
-import changeSearch from "../changeSearch.js";
+import changeSearch from "../../setUp/changeSearch.js";
 
 const setUpSearch = () => {
   document.addEventListener("click", (e) => {
@@ -11,7 +11,7 @@ const setUpSearch = () => {
       if (!search) return;
 
       const { query } = getHashPath();
-      if (search.value == query.get("search")) return;
+      if (search.value === query.get("search")) return;
 
       changeSearch(search.value);
     }
