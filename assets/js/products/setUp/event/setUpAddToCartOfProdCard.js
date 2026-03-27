@@ -25,15 +25,15 @@ const setUpAddToCartOfProdCard = () => {
     try {
       const shoes = await getProductById(addBtn.dataset.id);
       addModelContent.innerHTML = addToCartModal(shoes);
+
+      //Hiển thị giao diện với dữ liệu vừa nhận
+      addModelContent.innerHTML = addToCartModal(shoes);
+
+      //Set up lại UI
+      setUpUIAddToCartModal();
     } catch (err) {
       addModelContent.innerHTML = "<p>Lỗi tải sản phẩm</p>";
     }
-
-    //Hiển thị giao diện với dữ liệu vừa nhận
-    addModelContent.innerHTML = addToCartModal(shoes);
-
-    //Set up lại UI
-    setUpUIAddToCartModal();
   });
 
   //Setup logic xử lý bên trong modal (add to cart, chọn màu, size,...)
