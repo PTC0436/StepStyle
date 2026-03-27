@@ -4,7 +4,7 @@ const productHomeFilterModal = (
   tagList = [],
 ) => {
   return `
-    <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="ri-close-fill"></i></div>
@@ -79,7 +79,7 @@ const productHomeFilterModal = (
         </div>
       </div>
     </div>
-    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal" data-aos="fade-left" data-aos-delay="350" data-aos-easing="ease-out">
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#filterModal" data-aos="fade-left" data-aos-delay="350" data-aos-easing="ease-out">
       <i class="ri-filter-line"></i>
     </button>
   `;
