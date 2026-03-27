@@ -1,7 +1,7 @@
-import addToCart from "../utils/addToCart.js";
-import getIdFromHash from "../utils/getIdFromHash.js";
+import addToCart from "../../utils/addToCart.js";
+import getIdFromHash from "../../utils/getIdFromHash.js";
 
-export function setUpProductSelection() {
+const setUpProductDetail = () => {
   document.addEventListener("click", (e) => {
     const color = e.target.closest(".product__color");
     if (color) {
@@ -96,10 +96,6 @@ export function setUpProductSelection() {
       });
     }
   });
-}
+};
 
-export function setUpProductOptions() {
-  document.querySelectorAll(".product__color").forEach((item) => {
-    item.style.backgroundColor = item.dataset.color;
-  });
-}
+export default setUpProductDetail;

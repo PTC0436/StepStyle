@@ -1,4 +1,4 @@
-import { api } from "../utils/request.js";
+import api from "../utils/request.js";
 
 // register.js
 document.addEventListener("DOMContentLoaded", async function () {

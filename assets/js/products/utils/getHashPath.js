@@ -15,9 +15,10 @@
   */
 
 const getHashPath = () => {
-  const hash = window.location.hash || "#/";
-  const raw = hash.slice(1); // "/?brand=nike"
+  const hash = window.location.hash || "#/"; //Lấy trên URL từ phần kí tự '#' về sau
+  const raw = hash.slice(1); //Bỏ #
 
+  //path là phần trước dấu '?' còn queryString là phần sau
   const [path, queryString] = raw.split("?");
 
   return {

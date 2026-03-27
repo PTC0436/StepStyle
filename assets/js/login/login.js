@@ -1,4 +1,4 @@
-import { api, saveAuth } from "../utils/request.js";
+import api, { saveAuth } from "../utils/request.js";
 
 const loginForm = document.querySelector("form");
 

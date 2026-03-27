@@ -12,19 +12,25 @@ import productHomeSkeleton from "../render/productHomeSkeleton.js";
 import productDetail from "../render/productDetail.js";
 import productDetailSkeleton from "../render/productDetailSkeleton.js";
 import pageNotFound404 from "../render/pageNotFound404.js";
+import scrollTop from "../../utils/scrollTop.js";
 
+//Mỗi route sẽ có một path và một hàm render
 const routes = [
   {
+    //Path của của trang product list
     path: "/",
     render: async ({ query }) => {
+      //Dùng try catch vì lúc fetch có thể gặp lỗi server
       try {
+        //Tìm đến phần tử có id app
         const app = document.querySelector("#app");
+        //Vẽ ra giao diện skeleton trước khi nhận được dữ liệu
         if (app) app.innerHTML = productHomeSkeleton();
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
+        //Scroll lên đầu trang
+        scrollTop();
+
+        //Lấy các params từ query
         const filters = {
           search: query.get("search"),
           brand: query.get("brand"),
@@ -37,6 +43,7 @@ const routes = [
           page: query.get("page") ?? 1,
         };
 
+        //Gọi hàm lấy dữ liệu từ server
         const [products, brandList, genderList, tagList] = await Promise.all([
           getProductsList(filters),
           getBrandList(),
@@ -44,6 +51,7 @@ const routes = [
           getTagList(),
         ]);
 
+        //Khi có dữ liệu thì trả về
         return {
           html: productHome({
             products,
@@ -60,28 +68,35 @@ const routes = [
   },
 
   {
+    //Path của của trang product detail
     path: "/:id",
     render: async (params) => {
-      const app = document.querySelector("#app");
-      if (app) app.innerHTML = productDetailSkeleton();
+      try {
+        //Tìm tới element có id app
+        const app = document.querySelector("#app");
+        //Vẽ ra skeleton trước khi fetch dữ liệu
+        if (app) app.innerHTML = productDetailSkeleton();
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+        scrollTop();
 
-      const [product, reviews, similarProducts] = await Promise.all([
-        getProductById(params.id),
-        getReviewsByShoeId(params.id),
-        getSimilarProducts(params.id, 6),
-      ]);
+        //Fetch dữ liệu
+        const [product, reviews, similarProducts] = await Promise.all([
+          getProductById(params.id),
+          getReviewsByShoeId(params.id),
+          getSimilarProducts(params.id, 6),
+        ]);
 
-      if (!product) return pageNotFound404();
+        //Nếu không có product thì trả về page not found
+        if (!product) return pageNotFound404();
 
-      return {
-        html: productDetail({ product, reviews, similarProducts }),
-        route: "PRODUCT_DETAIL",
-      };
+        //Nếu có thì return
+        return {
+          html: productDetail({ product, reviews, similarProducts }),
+          route: "PRODUCT_DETAIL",
+        };
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
 ];

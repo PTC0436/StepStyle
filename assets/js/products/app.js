@@ -1,21 +1,27 @@
 import matchRoute from "./utils/matchRoute.js";
 import getHashPath from "./utils/getHashPath.js";
-import setUpSlider from "./setUp/setUpSlider.js";
-import { setUpFilter, setUpFilterItem } from "./setUp/filter.js";
-import { setUpSeachBar, setUpSearch } from "./setUp/search.js";
-import { setUpSort, setUpSortItem } from "./setUp/sort.js";
-import { setUpConstraint } from "./setUp/constraint.js";
-import setUpScrollTop from "/assets/js/scroll-top/scroll-top.js";
-import {
-  setUpProductOptions,
-  setUpProductSelection,
-} from "./setUp/setUpProductSelection.js";
-import setUpBackButton from "./setUp/setUpBackButton.js";
-import pageNotFound404 from "./render/pageNotFound404.js";
-import setUpPagination from "./setUp/setUpPagination.js";
-import closeHeaderMenu from "../header/closeHeaderMenu.js";
-import setUpAddToCartOfProdCard from "./setUp/setUpAddToCartOfProdCard.js";
 
+import setUpSlider from "./setUp/event/setUpSlider.js";
+import setUpFilter from "./setUp/event/setUpFilter.js";
+import setUpSearch from "./setUp/event/setUpSearch.js";
+import setUpSort from "./setUp/event/setUpSort.js";
+import setUpBackButton from "./setUp/event/setUpBackButton.js";
+import setUpProductDetail from "./setUp/event/setUpProductDetail.js";
+
+import setUpUIFilter from "./setUp/ui/setUpUIFilter.js";
+import setUpUISort from "./setUp/ui/setUpUISort.js";
+import setUpUISearch from "./setUp/ui/setUpUISearch.js";
+import setUpUIProductDetail from "./setUp/ui/setUpUIProductDetail.js";
+
+import setUpConstraint from "./setUp/event/setUpConstraint.js";
+import setUpScrollTop from "/assets/js/scroll-top/scroll-top.js";
+
+import pageNotFound404 from "./render/pageNotFound404.js";
+import setUpPagination from "./setUp/event/setUpPagination.js";
+import closeHeaderMenu from "../header/closeHeaderMenu.js";
+import setUpAddToCartOfProdCard from "./setUp/event/setUpAddToCartOfProdCard.js";
+
+//Hàm render là hàm chính để điều chỉnh cây DOM của trang sản phẩm
 const render = async () => {
   //<!--=============== AOS INIT ===============-->
   AOS.init();
@@ -26,22 +32,7 @@ const render = async () => {
   //Lấy element chính chứa toàn bộ nọi dung trang trừ header và footer
   const app = document.querySelector("#app");
 
-  /*
-  Hàm getHashPath() dùng để tách phần hash URL(phần sau kí tự '#') thành:
-  - path: định tuyến trang (route)
-  - query: các tham số lọc (dạng URLSearchParams)
-
-  Ví dụ 1 (trang danh sách sản phẩm):
-  URL: http://127.0.0.1:3000/pages/products.html#/?brand=Converse&page=1&priceMin=1000000&priceMax=2000000
-    path = "/" (đi đến trang list sản phẩm)
-    query = URLSearchParams("brand=Converse&page=1&priceMin=1000000&priceMax=2000000") (dùng để lọc các sản phẩm hiển thị)
-
-  Ví dụ 2 (trang chi tiết sản phẩm):
-  URL: http://127.0.0.1:3000/pages/products.html#/69b9483d557ba1976ca07474
-    path = "/69b9483d557ba1976ca07474" (đi đến chi tiết sp có id 69b9483d557ba1976ca07474)
-    query = URLSearchParams("")
-  */
-
+  //Xem chi tiết getHashPath tại getHashPath.js
   const { path, query } = getHashPath();
 
   //Kím  route phù hợp với path trên
@@ -71,14 +62,14 @@ const render = async () => {
   //Route khác nhau thì có một vài hàm phải gọi lại theo từng route
   switch (route) {
     case "PRODUCT_HOME": {
-      setUpFilterItem();
-      setUpSeachBar();
-      setUpSortItem();
+      setUpUIFilter();
+      setUpUISearch();
+      setUpUISort();
       break;
     }
     case "PRODUCT_DETAIL": {
       setUpSlider();
-      setUpProductOptions();
+      setUpUIProductDetail();
       break;
     }
   }
@@ -126,7 +117,7 @@ setUpFilter();
 setUpSearch();
 setUpSort();
 setUpConstraint();
-setUpProductSelection();
+setUpProductDetail();
 setUpBackButton();
 setUpPagination();
 setUpAddToCartOfProdCard();

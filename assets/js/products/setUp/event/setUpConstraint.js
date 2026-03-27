@@ -1,26 +1,23 @@
-import {
-  handleClearBrand,
-  handleClearGender,
-  handleClearPriceRange,
-  handleDeleteTag,
-} from "./filter.js";
-import { handleChangeSort } from "./sort.js";
+import filterAction from "../filterActions.js";
+import changeSort from "../changeSort.js";
 
-export function setUpConstraint() {
+const setUpConstraint = () => {
   document.addEventListener("click", (e) => {
-    // console.log(e);
+    //Xác định xem có phải nút clear được bấm không
     const btnClear = e.target.closest(".products__constraint-clear");
-    // console.log(btnClear);
     if (!btnClear) return;
+
+    //Xác định nút clear đó là nút gì và thực hiện chức năng tương ứng
     if (btnClear.classList.contains("products__constraint-clear-brand"))
-      handleClearBrand();
+      filterAction.clearBrand();
     else if (btnClear.classList.contains("products__constraint-clear-gender"))
-      handleClearGender();
+      filterAction.clearGender();
     else if (btnClear.classList.contains("products__constraint-clear-price"))
-      handleClearPriceRange();
+      filterAction.clearPriceRange();
     else if (btnClear.classList.contains("products__constraint-delete-tag"))
-      handleDeleteTag(btnClear.dataset.tag);
+      filterAction.deleteTag(btnClear.dataset.tag);
     else if (btnClear.classList.contains("products__constraint-clear-sort"))
-      handleChangeSort("", "");
+      changeSort("", "");
   });
-}
+};
+export default setUpConstraint;
