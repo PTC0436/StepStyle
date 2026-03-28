@@ -231,21 +231,25 @@ body {
 .review-2,
 .review-3 {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 30px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .review-card {
   background: white;
-  width: 420px;
-  padding: 30px;
+  width: 80%;
+  min-height: 180px;
+  padding: 24px;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
-
 .review-text {
   font-size: 15px;
   line-height: 1.6;
@@ -267,6 +271,13 @@ body {
 .stars {
   color: var(--star);
 }
+.containerreview {
+  max-width: 1500px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: var(--bg-dark);
+  border-radius: 10px;
+}
 /*responsive*/
 @media (max-width: 992px) {
   .history,
@@ -275,7 +286,10 @@ body {
   .containerreview {
     gap: 30px;
   }
-
+  .review-card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
   .tieude,
   .review-title {
     font-size: 28px;
@@ -284,23 +298,33 @@ body {
 @media (max-width: 768px) {
   .history,
   .vision,
-  .giatri,
-  .containerreview {
+  .giatri {
     flex-direction: column;
     gap: 30px;
   }
   .history-text p,
   .vision-text p,
-  .giatri-text p,
-  .containerreview p {
+  .giatri-text p {
     text-align: left;
   }
 
   .history-img img,
   .vision-img img,
-  .giatri-img img,
-  .review-card {
+  .giatri-img img {
     border-radius: 15px;
+  }
+  .containerreview {
+    max-width: 100%;
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .review-card {
+    max-width: 80%;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 @media (max-width: 480px) {
@@ -312,7 +336,22 @@ body {
   .history-text p,
   .vision-text p,
   .giatri-text p,
-  .containerreview p {
+  .containerreview {
+    gap: 20px;
+  }
+
+  .review-card {
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .review-text {
+    font-size: 14px;
+  }
+
+  .name {
     font-size: 14px;
   }
 }

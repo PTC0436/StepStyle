@@ -1,7 +1,13 @@
+import setUpNavCartNotification from "../header/setUpNavCartNotification.js";
+
 const cartList = document.getElementById("cartList");
 const subtotalAmount = document.getElementById("subtotalAmount");
 const totalAmount = document.getElementById("totalAmount");
 const checkoutBtn = document.querySelector(".checkout-btn");
+const discountAmount = document.getElementById("discountAmount");
+const couponInput = document.getElementById("couponInput");
+const applyCouponBtn = document.getElementById("applyCouponBtn");
+const couponMessage = document.getElementById("couponMessage");
 
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
@@ -26,8 +32,17 @@ function updateSummary() {
     }
   });
 
+  const discount = Number(localStorage.getItem("discount")) || 0;
+  const finalDiscount = subtotal > 0 ? discount : 0;
+  const total = subtotal - finalDiscount;
+
   subtotalAmount.textContent = formatMoney(subtotal);
-  totalAmount.textContent = formatMoney(subtotal);
+
+  if (discountAmount) {
+    discountAmount.textContent = formatMoney(finalDiscount);
+  }
+
+  totalAmount.textContent = formatMoney(total > 0 ? total : 0);
 
   if (checkoutBtn) {
     checkoutBtn.disabled = subtotal === 0;
@@ -35,7 +50,6 @@ function updateSummary() {
     checkoutBtn.style.cursor = subtotal === 0 ? "not-allowed" : "pointer";
   }
 }
-
 function renderCart() {
   const cart = getCart();
   cartList.innerHTML = "";
@@ -63,7 +77,12 @@ function renderCart() {
       <div class="cart-info">
         <div class="cart-label">Sản phẩm</div>
         <h3>${item.name}</h3>
-        <p>${item.category || "Giày nam"}</p>
+        <div class="cart-variant">
+          <span>Màu: ${item.colorChosen}</span>
+          <span> | </span>
+          <span>Size: ${item.sizeChosen}</span>
+          <div><b><span>Thành Tiền: ${formatMoney(item.price * item.quantity)}</span></b></div>
+            </div>
       </div>
 
       <div class="qty-wrap">
@@ -102,6 +121,7 @@ function renderCart() {
       newCart[index].quantity += 1;
       saveCart(newCart);
       renderCart();
+      setUpNavCartNotification();
     });
 
     btnMinus.addEventListener("click", () => {
@@ -110,6 +130,7 @@ function renderCart() {
         newCart[index].quantity -= 1;
         saveCart(newCart);
         renderCart();
+        setUpNavCartNotification();
       }
     });
 
@@ -118,6 +139,7 @@ function renderCart() {
       newCart.splice(index, 1);
       saveCart(newCart);
       renderCart();
+      setUpNavCartNotification();
     });
 
     cartList.appendChild(cartItem);
@@ -129,7 +151,7 @@ function renderCart() {
 function initSelectedState() {
   const cart = getCart().map((item) => ({
     ...item,
-    selected: item.selected ?? false,
+    selected: item.selected ?? true,
   }));
   saveCart(cart);
 }
@@ -148,6 +170,34 @@ if (checkoutBtn) {
     alert(`Bạn đang thanh toán ${selectedItems.length} sản phẩm.`);
   });
 }
+if (applyCouponBtn) {
+  applyCouponBtn.addEventListener("click", () => {
+    const code = couponInput.value.trim().toLowerCase();
+    let discount = 0;
 
+    if (code === "giam10k") {
+      discount = 10000;
+      if (couponMessage) {
+        couponMessage.textContent = "Áp dụng mã thành công: giảm 10.000đ";
+        couponMessage.style.color = "green";
+      }
+    } else if (code === "giam20k") {
+      discount = 20000;
+      if (couponMessage) {
+        couponMessage.textContent = "Áp dụng mã thành công: giảm 20.000đ";
+        couponMessage.style.color = "green";
+      }
+    } else {
+      discount = 0;
+      if (couponMessage) {
+        couponMessage.textContent = "Mã giảm giá không hợp lệ!";
+        couponMessage.style.color = "red";
+      }
+    }
+
+    localStorage.setItem("discount", discount);
+    updateSummary();
+  });
+}
 initSelectedState();
 renderCart();
