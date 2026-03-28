@@ -59,7 +59,7 @@ const productHomePagination = (currentPage, totalPages) => {
   );
 
   return `
-    <div class="pagination">
+    <div class="products__pagination">
       ${pages.join("")}
     </div>
   `;

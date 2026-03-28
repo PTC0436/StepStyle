@@ -96,7 +96,7 @@ const productHomeSkeleton = () => {
                   .join("")}
               </div>
             </div>
-            <div class="pagination">
+            <div class="products__pagination">
               <div class="skeleton width-100 max-width-400px height-25px border-radius-5px"></div>
             </div>
           </div>
