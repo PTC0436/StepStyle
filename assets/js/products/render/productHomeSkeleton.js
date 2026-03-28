@@ -26,6 +26,10 @@ const productHomeSkeleton = () => {
                 <div class="skeleton width-140px height-34px border-radius-20px"></div>
                 <div class="skeleton width-150px height-34px border-radius-20px"></div>
                 <div class="skeleton width-70px height-34px border-radius-20px"></div>
+                <div class="skeleton width-120px height-34px border-radius-20px"></div>
+                <div class="skeleton width-100px height-34px border-radius-20px"></div>
+                <div class="skeleton width-140px height-34px border-radius-20px"></div>
+                <div class="skeleton width-80px height-34px border-radius-20px"></div>
               </div>
 
               <div class="filter__label">
@@ -40,6 +44,10 @@ const productHomeSkeleton = () => {
                 <div class="skeleton width-140px height-34px border-radius-20px"></div>
                 <div class="skeleton width-150px height-34px border-radius-20px"></div>
                 <div class="skeleton width-70px height-34px border-radius-20px"></div>
+                <div class="skeleton width-120px height-34px border-radius-20px"></div>
+                <div class="skeleton width-100px height-34px border-radius-20px"></div>
+                <div class="skeleton width-140px height-34px border-radius-20px"></div>
+                <div class="skeleton width-80px height-34px border-radius-20px"></div>
               </div>
 
               <div class="filter__label">
@@ -54,6 +62,10 @@ const productHomeSkeleton = () => {
                 <div class="skeleton width-140px height-34px border-radius-20px"></div>
                 <div class="skeleton width-150px height-34px border-radius-20px"></div>
                 <div class="skeleton width-70px height-34px border-radius-20px"></div>
+                <div class="skeleton width-120px height-34px border-radius-20px"></div>
+                <div class="skeleton width-100px height-34px border-radius-20px"></div>
+                <div class="skeleton width-140px height-34px border-radius-20px"></div>
+                <div class="skeleton width-80px height-34px border-radius-20px"></div>
               </div>
 
               <div class="filter__label">
@@ -68,6 +80,11 @@ const productHomeSkeleton = () => {
                 <div class="skeleton width-140px height-34px border-radius-20px"></div>
                 <div class="skeleton width-150px height-34px border-radius-20px"></div>
                 <div class="skeleton width-70px height-34px border-radius-20px"></div>
+                <div class="skeleton width-120px height-34px border-radius-20px"></div>
+                <div class="skeleton width-100px height-34px border-radius-20px"></div>
+                <div class="skeleton width-140px height-34px border-radius-20px"></div>
+                <div class="skeleton width-80px height-34px border-radius-20px"></div>
+                
               </div>
             </div>
           </div>
