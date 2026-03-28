@@ -1,3 +1,7 @@
+//Hàm pageNotFound404 dùng để tạo cấu trúc html cho trang sản phẩm
+//khi người dùng truy cập một route không có trong trang sản phẩm
+//hoặc một sản phẩm tìm không thấy
+//Ví dụ: /pages/products.html#/me
 const pageNotFound404 = () => {
   return `
     <div class="not-found">

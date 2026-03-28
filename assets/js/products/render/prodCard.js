@@ -2,7 +2,10 @@ import { PRODUCT_DOMAIN } from "../utils/domain.js";
 import formatCurrency from "../utils/formatCurrency.js";
 import getRatingStars from "../utils/getRatingStars.js";
 
+//Hàm prodCard dùng để tạo cấu trúc html của một thẻ sản phẩm
 const prodCard = (product, className) => {
+  //Tính phầm trăm giám giá. Kết quả ra âm.
+  //Ví dụ: giá gốc = 100, giá bán = 80 thì ra -20%
   const discountPercentage = (
     100 * (product.salePrice / product.price) -
     100

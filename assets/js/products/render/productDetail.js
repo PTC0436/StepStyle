@@ -4,6 +4,8 @@ import productDetailInfor from "./productDetailInfor.js";
 import productDetailTestimonials from "./productDetailTestimonials.js";
 import productDetailSimilar from "./productDetailSimilar.js";
 
+//Hàm productDetail dùng để tạo cấu trúc html của phần bên trong #app của trang chi tiết sản phẩm
+//khi đã có dữ liệu từ call api
 const productDetail = ({
   product = {},
   reviews = [],

@@ -1,3 +1,7 @@
+//Hàm productHomeFilterModal dùng để tạo cấu trúc html cho filter ở trang danh sách sản phẩm
+//người dùng sẽ thấy khi màn hình hiện tại có chiều rộng bé hơn hoặc bằng 1175px
+//được hiện lên khi bấm nút có icon <i class="ri-filter-line">
+//dùng modal của bootstrap 5
 const productHomeFilterModal = (
   brandList = [],
   genderList = [],

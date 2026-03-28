@@ -1,3 +1,4 @@
+//Hàm prodCardSkeleton dùng để tạo cấu trúc html cho skeleton prodCard khi chưa hoặc đang call api
 const prodCardSkeleton = (className) => {
   return `
     <div class="${className}">

@@ -1,6 +1,9 @@
 import formatCurrency from "../utils/formatCurrency.js";
 import getRatingStars from "../utils/getRatingStars.js";
 
+//Hàm productDetailMain dùng để tạo cẩu trúc html cho phần chính của trang chi tiết sản phẩm
+//gồm nhiều ảnh sản phẩm, tên giá, các options, và các nút chức năng
+//có dùng slider của thư viện slickjs
 const productDetailMain = (product) => {
   const discountPercentage = (
     100 * (product.salePrice / product.price) -

@@ -1,8 +1,12 @@
 import getHashPath from "../utils/getHashPath.js";
 import capitalizeWords from "../utils/capitalizeWords.js";
 
+//Hàm productHomeConstraint dùng để tạo cấu trúc html cho phần các ràng buộc từ query gồm nhiều thẻ ràng buộc
 const productHomeConstraint = () => {
+  //Lấy ra query từ URL
   const { query } = getHashPath();
+
+  //Lấy các thuộc tính từ query
   const brand = query.get("brand");
 
   const gender = query.get("gender");
@@ -15,8 +19,10 @@ const productHomeConstraint = () => {
   const sort = query.get("sort");
   const order = query.get("order") || "asc";
 
+  //Biến để khởi tạo độ trễ khi xuất hiện của các thẻ, dùng thư viện aos.js
   var delayTime = 150;
 
+  //Hàm tăng độ delay để tạo hiệu ứng xuất hiện từ từ
   const increaseDelayTime = (increaseAmount) => {
     delayTime += increaseAmount;
     return delayTime;

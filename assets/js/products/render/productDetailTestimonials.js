@@ -1,6 +1,7 @@
 import getRatingStars from "../utils/getRatingStars.js";
 import getDateAndTime from "../utils/getDateAndTime.js";
 
+//Hàm productDetailTestimonials dùng để tạo cấu trúc phần các đánh giá của sản phẩm trong trang chi tiết sản phẩm đó
 const productDetailTestimonials = (reviews = []) => {
   return `
     <div class="product__testimonials">

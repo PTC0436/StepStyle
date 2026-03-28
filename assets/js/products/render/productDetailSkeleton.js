@@ -1,5 +1,10 @@
 import prodCardSkeleton from "./prodCardSkeleton.js";
 
+//Hàm productDetailSkeleton dùng để tạo cấu trúc html cho trang chi tiết sản phẩm khi chưa hoặc đang call api
+//(lúc chưa có dữ liệu)
+//Cú pháp Array(n) chỉ tạo mảng có 4 ô trống nên không dùng map() được
+//Cú pháp [...Array(n)] dùng để tạo 1 mảng có n phần tử undefined
+//được dùng để tạo nhiều vòng lặp bên dưới do có method map()
 const productDetailSkeleton = () => {
   return `
     <div class="product">

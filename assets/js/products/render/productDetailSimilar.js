@@ -1,5 +1,7 @@
 import prodCard from "./prodCard.js";
 
+//Hàm productDetailSimilar dùng để tạo cấu trúc html cho phần sản phẩm tương tự của trang chi tiết sản phẩm
+//gồm nhiều prodCard có điểm tương đồng với sản chính của trang như brand, khoảng giá, tags,...
 const productDetailSimilar = (similarProducts = []) => {
   return `
     <div class="product__same-brand">

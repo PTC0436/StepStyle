@@ -1,3 +1,5 @@
+//Hàm addToCartModalSkeleton dùng để tạo cấu trúc html modal hiện lên
+//khi ấn nút giỏ hàng ở prodCard và chưa call api hoặc đang call và đợi response
 const addToCartModalSkeleton = () => {
   return `
     <div class="modal-header border-0">

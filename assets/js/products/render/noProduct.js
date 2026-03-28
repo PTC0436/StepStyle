@@ -1,3 +1,5 @@
+//Hàm noProduct dùng để tạo cấu trúc html cho product list
+//khi không có sản phẩm nào khớp với filter và search
 const noProduct = () => {
   return `
     <div class="col-12">

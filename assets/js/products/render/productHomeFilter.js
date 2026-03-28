@@ -1,3 +1,5 @@
+//Hàm productHomeFilter dùng để tạo cấu trúc html cho filter ở trang danh sách sản phẩm
+//người dùng sẽ thấy khi màn hình hiện tại có chiều rộng lớn hơn 1175px
 const productHomeFilter = (brandList = [], genderList = [], tagList = []) => {
   return `
     <div class="products__filter" data-aos="fade-right" data-aos-duration="300" data-aos-easing="ease-out">

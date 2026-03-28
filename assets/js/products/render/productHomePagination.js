@@ -1,6 +1,8 @@
+//Hàm productHomePagination dùng để tạo cấu trúc html của phần phân trang trong trang danh sách sản phẩm
 const productHomePagination = (currentPage, totalPages) => {
   const pages = [];
 
+  //Tổng = 0 thì không có phân trang(noProduct)
   if (totalPages == 0) return "";
 
   //Nút first

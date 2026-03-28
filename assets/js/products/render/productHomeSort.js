@@ -1,3 +1,5 @@
+//Hàm productHomeSort dùng để tạo cấu trúc html cho phần sort của trang danh sách sản phẩm
+//dùng dropdown của bootstrap 5
 const productHomeSort = () => {
   return `
     <div class="products__sort" data-aos="fade-left" data-aos-delay="400" data-aos-easing="ease-out">

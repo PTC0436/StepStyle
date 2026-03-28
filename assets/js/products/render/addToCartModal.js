@@ -1,5 +1,8 @@
 import formatCurrency from "../utils/formatCurrency.js";
 
+//Hàm addToCartModal dùng để tạo cấu trúc html của modal hiện lên
+//khi ấn nút giỏ hàng ở prodCard và đã call xong api
+//có dùng modal của bootstrap 5
 const addToCartModal = (shoes) => {
   return `
     <div class="modal-header border-0">

@@ -1,3 +1,6 @@
+//Hàm productDetailInfor dùng để tạo cấu trúc html cho phần thông tin chi tiết về sản phẩm
+//của trang chi tiết sản phẩm (gồm các thuộc tính và chính sách của shop đối với sản phẩm đó)
+//có dùng accordion của bootstrap 5
 const productDetailInfor = (product) => {
   return `
     <div class="product__infor">

@@ -1,5 +1,7 @@
 import prodCardSkeleton from "./prodCardSkeleton.js";
 
+//Hàm này dùng để tạo cấu trúc html cho trang danh sách sản phẩm
+//khi chưa có dữ liệu(chưa hoặc đang call api)
 const productHomeSkeleton = () => {
   return `
     <div class="products py-md-4 py-3">

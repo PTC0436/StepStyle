@@ -7,12 +7,15 @@ import prodCard from "./prodCard.js";
 import noProduct from "./noProduct.js";
 import productHomePagination from "./productHomePagination.js";
 
+//Hàm productHome dùng để tạo cấu trúc html trong phần #app của trang danh sách sản phẩm dùng để chèn vào cây DOM
+//khi đã có dữ liệu từ call api
 const productHome = ({
   products = [],
   brandList = [],
   genderList = [],
   tagList = [],
 }) => {
+  //Dùng cú pháp destructuring để lấy các key ra cho dễ sử dụng
   const { data, page, totalPages } = products;
 
   return `

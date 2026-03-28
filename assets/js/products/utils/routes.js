@@ -13,6 +13,7 @@ import productDetail from "../render/productDetail.js";
 import productDetailSkeleton from "../render/productDetailSkeleton.js";
 import pageNotFound404 from "../render/pageNotFound404.js";
 import scrollTop from "../../utils/scrollTop.js";
+import isValidObjectId from "./isValidObjectId.js";
 
 //Mỗi route sẽ có một path và một hàm render
 const routes = [
@@ -62,7 +63,11 @@ const routes = [
           route: "PRODUCT_HOME",
         };
       } catch (err) {
-        console.error(err);
+        //Có lỗi thì trả về page not found
+        return {
+          html: pageNotFound404(),
+          route: "NOT_FOUND",
+        };
       }
     },
   },
@@ -71,15 +76,23 @@ const routes = [
     //Path của của trang product detail
     path: "/:id",
     render: async (params) => {
+      //Kiểm tra xem có đi vào trang chi tiết sản phẩm hay không
+      if (!isValidObjectId(params.id)) {
+        return {
+          html: pageNotFound404(),
+          route: "NOT_FOUND",
+        };
+      }
+
       try {
         //Tìm tới element có id app
         const app = document.querySelector("#app");
-        //Vẽ ra skeleton trước khi fetch dữ liệu
+        //Vẽ ra skeleton trước khi call api
         if (app) app.innerHTML = productDetailSkeleton();
 
         scrollTop();
 
-        //Fetch dữ liệu
+        //Call api
         const [product, reviews, similarProducts] = await Promise.all([
           getProductById(params.id),
           getReviewsByShoeId(params.id),
@@ -87,7 +100,12 @@ const routes = [
         ]);
 
         //Nếu không có product thì trả về page not found
-        if (!product) return pageNotFound404();
+        if (!product) {
+          return {
+            html: pageNotFound404(),
+            route: "NOT_FOUND",
+          };
+        }
 
         //Nếu có thì return
         return {
@@ -95,7 +113,11 @@ const routes = [
           route: "PRODUCT_DETAIL",
         };
       } catch (err) {
-        console.log(err);
+        //Có lỗi thì trả về page not found
+        return {
+          html: pageNotFound404(),
+          route: "NOT_FOUND",
+        };
       }
     },
   },

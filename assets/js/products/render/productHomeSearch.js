@@ -1,3 +1,4 @@
+//Hàm productHomeSearch dùng để tạo cấu trúc html cho phẩn tìm kiếm của trang danh sách sản phẩm
 const productHomeSearch = () => {
   return `
     <div class="products__search flex-grow-1">
