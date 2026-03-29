@@ -23,7 +23,7 @@ export const getProductById = async (id) => {
 };
 
 //Hàm getSimilarProducts dùng để lấy danh sách sản phẩm tương tự
-export const getSimilarProducts = async (id, limit = null) => {
+export const getSimilarProducts = async (id, limit = 4) => {
   const res = await api.get(
     `/api/shoes/${id}/similar${limit ? "?limit=" + limit : ""}`,
   );
