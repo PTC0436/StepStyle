@@ -96,7 +96,7 @@ const routes = [
         const [product, reviews, similarProducts] = await Promise.all([
           getProductById(params.id),
           getReviewsByShoeId(params.id),
-          getSimilarProducts(params.id, 6),
+          getSimilarProducts(params.id),
         ]);
 
         //Nếu không có product thì trả về page not found
