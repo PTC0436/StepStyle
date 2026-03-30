@@ -35,13 +35,13 @@ const productHome = ({
             ${productHomeConstraint()}
             
             <div class="products__list">
-              <div class="row mt-sm-2 mt-1 gy-md-4 gy-2">
+              <div class="row mt-sm-2 mt-1 gy-md-4 gy-3">
                 ${
                   data
                     ?.map((item) =>
                       prodCard(
                         item,
-                        "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-1",
+                        "col-xxl-3 col-lg-4 col-sm-4 col-6 px-md-3 px-2",
                       ),
                     )
                     .join("") || noProduct()

@@ -12,7 +12,7 @@ const prodCard = (product, className) => {
   ).toFixed(0);
 
   return `
-    <div class="${className}">
+    <div class="${className}" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0" data-aos-duration="600" data-aos-easing="ease-out">
       <div class="prod__card" data-id="${product.id}">
         <div class="prod__thumb">
           <a href=${PRODUCT_DOMAIN + "#/" + product.id}><img src=${product.thumbnail} alt="${product.name}" loading="lazy"/></a>
