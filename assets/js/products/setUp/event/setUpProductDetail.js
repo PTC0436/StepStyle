@@ -123,9 +123,17 @@ const setUpProductDetail = () => {
 
       //Thông báo thành công
       Swal.fire({
-        title: "Đã thêm vào giỏ hàng!",
+        title: "Đã thêm vào giỏ!",
         icon: "success",
-        timer: 3000,
+        html: `
+          <ul class="p-0 m-0">
+            <li><b>${name}</b></li>
+            <li><b>Màu: </b>${colorChosen}</li>
+            <li><b>Size: </b>${sizeChosen}</li>
+            <li><b>Số lượng: </b>${quantity}</li>
+          </ul>
+        `,
+        timer: 4000,
         timerProgressBar: true,
       });
     }
