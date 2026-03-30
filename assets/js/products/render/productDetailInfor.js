@@ -23,7 +23,7 @@ const productDetailInfor = (product) => {
                 <p><strong>Trọng lượng(kg):</strong> ${product?.weight ?? "Đang cập nhật"}</p>
                 <p><strong>Giới tính:</strong> ${product?.gender ?? "Đang cập nhật"}</p>
                 <p><strong>Cam kết chính hãng 100%</strong></p>
-                <p><strong style="text-decoration: underline; font-style: italic;">Lưu ý:</strong>Đối với các sản phẩm hết hàng sẵn hoặc hết size bạn cần, Quý khách có thể liên hệ với Stepstyle để trao đổi.</p>
+                <p><strong><em class="text-decoration-underline">Lưu ý:</em></strong>Đối với các sản phẩm hết hàng sẵn hoặc hết size bạn cần, Quý khách có thể liên hệ với Stepstyle để trao đổi.</p>
                 <br/>
                 <p>${product?.description ?? ""}</p>
             </div>  
