@@ -130,7 +130,7 @@ const setUpAddToCartModal = () => {
       const modal = bootstrap.Modal.getInstance(modalEl);
       modal.hide();
 
-      //Thông báo thành công
+      //Thông báo thành công (mẫu của sweetalert2)
       Swal.mixin({
         toast: true,
         position: "top-end",
@@ -144,7 +144,15 @@ const setUpAddToCartModal = () => {
         },
       }).fire({
         icon: "success",
-        title: "Thêm vào giỏ hàng thành công!",
+        title: "Đã thêm vào giỏ hàng!",
+        html: `
+          <ul>
+            <li><b>${name}</b></li>
+            <li><b>Màu: </b>${colorChosen}</li>
+            <li><b>Size: </b>${sizeChosen}</li>
+            <li><b>Số lượng: </b>${quantity}</li>
+          </ul>
+        `,
       });
     }
   });

@@ -34,8 +34,8 @@ body {
 }
 
 .banner button:hover {
-  background-color: var(--tertiary);
-  color: #333;
+  background-color: var(--secondary);
+  color: var(--bg-light);
 }
 
 .products {
@@ -47,6 +47,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .product-card {

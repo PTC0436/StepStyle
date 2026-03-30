@@ -353,7 +353,7 @@
   }
 }
 
-/* Css prodCard (Thẻ sản nhỏ) */
+/* Css prodCard (Thẻ sản phẩm nhỏ) */
 
 .prod__card {
   width: 100%;
@@ -525,6 +525,22 @@
   }
   .prod__num-reviews {
     font-size: 10px;
+  }
+}
+
+.buy-now-alert__title {
+  text-align: left;
+}
+.buy-now-alert__content {
+  text-align: left;
+  margin: 10px 0;
+
+  b {
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 5px;
   }
 }
 

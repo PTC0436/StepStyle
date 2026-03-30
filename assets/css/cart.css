@@ -1,3 +1,4 @@
+/* ================= RESET CHUNG ================= */
 * {
   margin: 0;
   padding: 0;
@@ -5,12 +6,86 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+/* ================= GIAO DIỆN TOÀN TRANG ================= */
 body {
   background: #fcf8f8;
   color: #1f2937;
-  padding: 0;
 }
 
+/* ================= MODAL THÀNH CÔNG ================= */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Khung nội dung modal */
+.modal-content {
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Phần đầu modal */
+.modal-header {
+  background: linear-gradient(to right, #f9dfdf, #f5afaf);
+  padding: 12px 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Nút đóng modal */
+.modal-header button {
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Phần thân modal */
+.modal-body {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Icon dấu tích thành công */
+.check-icon {
+  width: 60px;
+  height: 60px;
+  background: #22c55e;
+  color: white;
+  font-size: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+/* Hiệu ứng xuất hiện của modal */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= KHUNG CHÍNH ================= */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -24,6 +99,7 @@ body {
   align-items: start;
 }
 
+/* Tiêu đề trang */
 .page-title {
   grid-area: title;
   display: flex;
@@ -36,11 +112,13 @@ body {
   color: #111827;
 }
 
+/* Icon giỏ hàng ở tiêu đề */
 .cart-icon {
   font-size: 30px;
   line-height: 1;
 }
 
+/* Box danh sách giỏ hàng, mã giảm giá, tổng tiền */
 .cart-list,
 .coupon-box,
 .summary-box {
@@ -50,24 +128,31 @@ body {
   box-shadow: 0 10px 24px rgba(245, 175, 175, 0.12);
 }
 
+/* Danh sách sản phẩm */
 .cart-list {
   grid-area: cart;
   padding: 18px;
 }
 
+/* Khu vực nhập mã giảm giá */
 .coupon-box {
   grid-area: coupon;
   padding: 18px;
 }
 
+/* Khu vực tổng kết đơn hàng */
 .summary-box {
   grid-area: summary;
   padding: 22px;
 }
+
+/* Tạo khoảng cách dưới cho summary-box và coupon-box */
 .summary-box,
 .coupon-box {
   margin-bottom: 22px;
 }
+
+/* ================= TỪNG SẢN PHẨM TRONG GIỎ ================= */
 .cart-item {
   position: relative;
   display: grid;
@@ -80,44 +165,52 @@ body {
   padding: 18px;
   margin-bottom: 14px;
   transition: all 0.2s ease;
+  position: relative;
 }
 
+/* Sản phẩm cuối không cần margin dưới */
 .cart-item:last-child {
   margin-bottom: 0;
 }
 
+/* Hiệu ứng hover cho từng sản phẩm */
 .cart-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(245, 175, 175, 0.2);
 }
 
+/* ================= NÚT TICK CHỌN SẢN PHẨM ================= */
 .item-check {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 22px;
-  height: 22px;
+  top: 8px;
+  left: 8px;
+  transform: translate(-30%, -30%);
+  z-index: 10;
   cursor: pointer;
 }
 
+/* Ẩn checkbox mặc định */
 .item-check input {
   display: none;
 }
 
+/* Tạo vòng tròn custom cho checkbox */
 .checkmark {
   width: 22px;
   height: 22px;
-  border-radius: 6px;
+  border-radius: 50%;
   background: #fff;
   border: 2px solid #ef4444;
   display: block;
   position: relative;
 }
 
+/* Đổi màu nền khi checkbox được chọn */
 .item-check input:checked + .checkmark {
   background: #ef4444;
 }
 
+/* Hiện dấu tích khi checkbox được chọn */
 .item-check input:checked + .checkmark::after {
   content: "✓";
   color: #fff;
@@ -129,15 +222,17 @@ body {
   transform: translate(-50%, -58%);
 }
 
+/* ================= ẢNH SẢN PHẨM ================= */
 .cart-image {
   width: 74px;
   height: 74px;
   object-fit: cover;
   border-radius: 16px;
   background: #111;
-  margin-left: 18px;
+  margin-left: 0;
 }
 
+/* Tên sản phẩm */
 .cart-info h3 {
   font-size: 17px;
   font-weight: 700;
@@ -146,37 +241,52 @@ body {
   color: #111827;
 }
 
+/* Đoạn văn mô tả trong thông tin sản phẩm */
 .cart-info p {
   font-size: 14px;
   color: #6b7280;
 }
 
+/* Nhãn nhỏ như Sản phẩm, Số lượng, Giá */
 .cart-label {
   font-size: 12px;
   color: #9ca3af;
   margin-bottom: 8px;
 }
+
+/* ================= KHU VỰC SỐ LƯỢNG VÀ GIÁ ================= */
 .qty-wrap,
-.price-wrap,
-.remove-wrap {
+.price-wrap {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-self: start;
+  padding-top: 0px;
 }
 
+/* Khu vực nút xóa */
+.remove-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Canh giữa khối số lượng */
 .qty-wrap {
   justify-self: center;
 }
 
+/* Canh khối giá bắt đầu từ trái */
 .price-wrap {
   justify-self: start;
 }
 
+/* Canh giữa nút xóa */
 .remove-wrap {
   align-items: center;
   justify-content: center;
 }
 
+/* Hộp chứa nút tăng giảm và số lượng */
 .qty-box {
   display: inline-flex;
   align-items: center;
@@ -190,6 +300,7 @@ body {
   background: #fff;
 }
 
+/* Nút tăng giảm số lượng */
 .qty-btn {
   width: 24px;
   height: 24px;
@@ -207,11 +318,13 @@ body {
   line-height: 1;
 }
 
+/* Hover nút tăng giảm */
 .qty-btn:hover {
   background: #f5afaf;
   color: #fff;
 }
 
+/* Số lượng sản phẩm */
 .quantity {
   min-width: 16px;
   text-align: center;
@@ -220,12 +333,14 @@ body {
   color: #111827;
 }
 
+/* Giá sản phẩm */
 .price-text {
   font-size: 16px;
   font-weight: 700;
   color: #111827;
 }
 
+/* ================= NÚT XÓA ================= */
 .remove-btn {
   border: none;
   background: transparent;
@@ -236,11 +351,13 @@ body {
   line-height: 1;
 }
 
+/* Hover nút xóa */
 .remove-btn:hover {
   color: #e11d48;
   transform: scale(1.08);
 }
 
+/* ================= TIÊU ĐỀ KHU VỰC COUPON VÀ SUMMARY ================= */
 .coupon-box h2,
 .summary-box h2 {
   font-size: 24px;
@@ -249,6 +366,7 @@ body {
   color: #111827;
 }
 
+/* Ô nhập mã giảm giá */
 .coupon-box input {
   width: 100%;
   height: 52px;
@@ -262,11 +380,13 @@ body {
   transition: 0.2s;
 }
 
+/* Hiệu ứng khi focus ô nhập mã */
 .coupon-box input:focus {
   border-color: #f5afaf;
   box-shadow: 0 0 0 4px rgba(245, 175, 175, 0.18);
 }
 
+/* Nút áp dụng mã và nút thanh toán */
 #applyCouponBtn,
 .checkout-btn {
   width: 100%;
@@ -281,18 +401,21 @@ body {
   transition: 0.2s;
 }
 
+/* Hover nút áp dụng mã và nút thanh toán */
 #applyCouponBtn:hover,
 .checkout-btn:hover {
   background: #ea9a9a;
   transform: translateY(-1px);
 }
 
+/* Thông báo mã giảm giá */
 #couponMessage {
   margin-top: 12px;
   font-size: 14px;
   color: #e11d48;
 }
 
+/* Dòng thông tin trong summary */
 .summary-box p {
   display: flex;
   justify-content: space-between;
@@ -302,6 +425,7 @@ body {
   color: #4b5563;
 }
 
+/* Dòng tổng tiền nổi bật */
 .summary-box p strong {
   display: flex;
   justify-content: space-between;
@@ -310,10 +434,12 @@ body {
   color: #111827;
 }
 
+/* Tạo khoảng cách phía trên nút thanh toán */
 .checkout-btn {
   margin-top: 18px;
 }
 
+/* Chữ hiển thị khi giỏ hàng trống */
 .empty-cart {
   text-align: center;
   padding: 30px 0;
@@ -321,10 +447,8 @@ body {
   font-size: 16px;
 }
 
-@media (max-width: 900px) {
-  body {
-  }
-
+/* ================= RESPONSIVE CHO TABLET ================= */
+@media (max-width: 1024px) {
   .container {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -332,29 +456,181 @@ body {
       "cart"
       "coupon"
       "summary";
+    gap: 20px;
+    padding: 0 16px;
   }
 
+  .cart-list,
+  .coupon-box,
+  .summary-box {
+    width: 100%;
+  }
+
+  /* Chuyển mỗi cart-item sang dạng dọc */
   .cart-item {
-    grid-template-columns: 74px 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 14px;
+    padding: 18px 16px 16px;
+    position: relative;
   }
 
+  /* Tăng kích thước ảnh trên tablet */
   .cart-image {
-    margin-left: 10px;
+    width: 84px;
+    height: 84px;
+    margin: 0;
+    flex-shrink: 0;
   }
 
+  /* Khối thông tin sản phẩm xếp dọc */
+  .cart-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Tăng kích thước tên sản phẩm */
+  .cart-info h3 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  /* Bỏ margin của đoạn p */
+  .cart-info p {
+    margin: 0;
+  }
+
+  /* Khu vực biến thể như màu, size */
+  .cart-variant {
+    margin-top: 2px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Các khối số lượng, giá, xóa xếp dọc */
   .qty-wrap,
   .price-wrap,
   .remove-wrap {
-    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
+  /* Hộp số lượng trên tablet */
+  .qty-box {
+    margin-top: 6px;
+    min-width: 110px;
+    height: 40px;
+  }
+
+  /* Tăng cỡ chữ giá */
+  .price-text {
+    margin-top: 6px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  /* Đưa nút xóa sang phải */
   .remove-wrap {
     align-items: flex-end;
   }
 
+  /* Tăng cỡ nút xóa */
+  .remove-btn {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  /* Chỉnh lại vị trí dấu tick */
   .item-check {
     top: 10px;
     left: 10px;
+    transform: none;
+  }
+
+  /* Ảnh và thông tin hiển thị ngang */
+  .cart-item > .cart-image,
+  .cart-item > .cart-info {
+    display: inline-flex;
+  }
+
+  /* Kéo giãn cart-item */
+  .cart-item {
+    align-items: stretch;
+  }
+
+  /* Đẩy khối info lên ngang với ảnh */
+  .cart-item .cart-image + .cart-info {
+    margin-top: -98px;
+    margin-left: 100px;
+    min-height: 84px;
+  }
+
+  /* Tạo khoảng cách trên cho khu số lượng */
+  .qty-wrap {
+    margin-top: 4px;
+  }
+}
+
+/* ================= RESPONSIVE CHO MOBILE ================= */
+@media (max-width: 600px) {
+  .container {
+    gap: 16px;
+    padding: 0 12px;
+  }
+
+  /* Giảm khoảng cách trong cart-item */
+  .cart-item {
+    gap: 12px;
+    padding: 16px 14px 14px;
+  }
+
+  /* Giảm kích thước ảnh */
+  .cart-image {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* Chỉnh khối info cho phù hợp mobile */
+  .cart-item .cart-image + .cart-info {
+    margin-top: -84px;
+    margin-left: 88px;
+    min-height: 72px;
+  }
+
+  /* Giảm cỡ chữ tên sản phẩm */
+  .cart-info h3 {
+    font-size: 18px;
+  }
+
+  /* Giảm cỡ chữ mô tả, nhãn, biến thể */
+  .cart-info p,
+  .cart-label,
+  .cart-variant {
+    font-size: 13px;
+  }
+
+  /* Giảm kích thước hộp số lượng */
+  .qty-box {
+    min-width: 96px;
+    height: 38px;
+  }
+
+  /* Giảm cỡ chữ giá */
+  .price-text {
+    font-size: 22px;
+  }
+
+  /* Giảm cỡ nút xóa */
+  .remove-btn {
+    font-size: 24px;
+  }
+
+  /* Giảm padding box coupon và summary */
+  .coupon-box,
+  .summary-box {
+    padding: 18px 14px;
   }
 }

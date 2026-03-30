@@ -1,4 +1,5 @@
 import addToCart from "../../utils/addToCart.js";
+import formatCurrency from "../../utils/formatCurrency.js";
 import getIdFromHash from "../../utils/getIdFromHash.js";
 
 const setUpProductDetail = () => {
@@ -124,6 +125,77 @@ const setUpProductDetail = () => {
       Swal.fire({
         title: "Đã thêm vào giỏ hàng!",
         icon: "success",
+        timer: 3000,
+        timerProgressBar: true,
+      });
+    }
+
+    //XỬ LÝ BUY NOW
+    const buy = e.target.closest(".product__action.buy-now");
+    if (buy) {
+      //Lấy màu đã chọn
+      const colorChosen = document.querySelector(".product__color--active")
+        ?.dataset.colorName;
+
+      //Kiểm tra màu
+      if (!colorChosen) {
+        Swal.fire({
+          icon: "error",
+          title: "Vui lòng chọn màu!",
+          timer: 2000,
+          timerProgressBar: true,
+        });
+        return;
+      }
+
+      //Lấy size đã chọn
+      const sizeChosen = document.querySelector(".product__size--active")
+        ?.dataset.size;
+
+      //Kiểm tra size
+      if (!sizeChosen) {
+        Swal.fire({
+          icon: "error",
+          title: "Vui lòng chọn size!",
+          timer: 2000,
+          timerProgressBar: true,
+        });
+        return;
+      }
+
+      //Lấy các thông tin khác
+
+      //Tên sản phẩm
+      const name = document.querySelector(".product__name")?.innerHTML;
+
+      //Giá sản phẩm
+      const price = document
+        .querySelector(".product__price--current")
+        ?.innerHTML.replace(/\./g, ""); //Bỏ các dấu chấm
+
+      //Số lượng sản phẩm
+      const quantity = Number(
+        document.querySelector(".product__quantity-content")?.innerHTML,
+      );
+
+      Swal.fire({
+        title: "Cảm ơn đã đặt hàng!",
+        icon: "success",
+        html: `
+          <div class="buy-now-alert">
+            <h3 class="buy-now-alert__title">Đơn hàng:</h3>
+            <div class="buy-now-alert__content">
+              <p class="buy-now-alert__name"><b>Sản phẩm: </b>${name}</p>
+              <p class="buy-now-alert__color"><b>Màu: </b>${colorChosen}</p>
+              <p class="buy-now-alert__size"><b>Size: </b>${sizeChosen}</p>
+              <p class="buy-now-alert__price"><b>Đơn giá: </b>${formatCurrency(price)} VND</p>
+              <p class="buy-now-alert__quantity"><b>Số lượng: </b>${quantity}</p>
+              <p class="buy-now-alert__total"><b>Thành tiền: </b>${formatCurrency(Number(price) * quantity)} VND</p>
+            </div>
+            <h3 class="buy-now-alert__callback">Chúng tôi sẽ liên hệ với bạn trong vòng 24h để xác nhận đơn hàng!</h3>
+          </div>
+        `,
+        showCloseButton: true,
       });
     }
   });
