@@ -71,7 +71,9 @@ const setUpAddToCartModal = () => {
         Swal.fire({
           icon: "error",
           title: "Vui lòng chọn màu!",
-          timer: 2000,
+          confirmButtonColor: "hsl(350, 88%, 68%)",
+          confirmButtonText: "Đóng",
+          timer: 3000,
           timerProgressBar: true,
         });
         return;
@@ -85,7 +87,9 @@ const setUpAddToCartModal = () => {
         Swal.fire({
           icon: "error",
           title: "Vui lòng chọn size!",
-          timer: 2000,
+          confirmButtonColor: "hsl(350, 88%, 68%)",
+          confirmButtonText: "Đóng",
+          timer: 3000,
           timerProgressBar: true,
         });
         return;

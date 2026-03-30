@@ -84,15 +84,15 @@ function renderCart() {
       <img class="cart-image" src="${item.thumbnail}" alt="${item.name}" />
 
       <div class="cart-info">
-  <div class="cart-label">Sản phẩm</div>
-  <h3>${item.name}</h3>
-  <div class="cart-variant">
-    <span>Màu: ${item.colorChosen}</span>
-    <span> | </span>
-    <span>Size: ${item.sizeChosen}</span>
-    <div><b><span>Thành Tiền: ${formatMoney(item.price * item.quantity)}</span></b></div>
+        <div class="cart-label">Sản phẩm</div>
+        <h3>${item.name}</h3>
+        <div class="cart-variant">
+          <span>Màu: ${item.colorChosen}</span>
+          <span> | </span>
+          <span>Size: ${item.sizeChosen}</span>
+          <div><b><span>Thành Tiền: ${formatMoney(item.price * item.quantity)}</span></b></div>
+            </div>
       </div>
-</div>
 
       <div class="qty-wrap">
         <div class="cart-label">Số lượng</div>
@@ -180,6 +180,7 @@ if (checkoutBtn) {
     //xoá mã giảm giá sau khi thanh toán
     localStorage.removeItem("discount");
     renderCart();
+    setUpNavCartNotification();
     //Hiển thị modal thông báo thanh toán thành công
     modal.style.display = "flex";
   });

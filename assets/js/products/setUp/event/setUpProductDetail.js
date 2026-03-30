@@ -69,6 +69,8 @@ const setUpProductDetail = () => {
           title: "Vui lòng chọn màu!",
           timer: 2000,
           timerProgressBar: true,
+          confirmButtonColor: "hsl(350, 88%, 68%)",
+          confirmButtonText: "Đóng",
         });
         return;
       }
@@ -84,6 +86,8 @@ const setUpProductDetail = () => {
           title: "Vui lòng chọn size!",
           timer: 2000,
           timerProgressBar: true,
+          confirmButtonColor: "hsl(350, 88%, 68%)",
+          confirmButtonText: "Đóng",
         });
         return;
       }
@@ -133,6 +137,8 @@ const setUpProductDetail = () => {
             <li><b>Số lượng: </b>${quantity}</li>
           </ul>
         `,
+        confirmButtonColor: "hsl(350, 88%, 68%)",
+        confirmButtonText: "Đóng",
         timer: 4000,
         timerProgressBar: true,
       });
@@ -152,6 +158,8 @@ const setUpProductDetail = () => {
           title: "Vui lòng chọn màu!",
           timer: 2000,
           timerProgressBar: true,
+          confirmButtonColor: "hsl(350, 88%, 68%)",
+          confirmButtonText: "Đóng",
         });
         return;
       }
@@ -167,6 +175,8 @@ const setUpProductDetail = () => {
           title: "Vui lòng chọn size!",
           timer: 2000,
           timerProgressBar: true,
+          confirmButtonColor: "hsl(350, 88%, 68%)",
+          confirmButtonText: "Đóng",
         });
         return;
       }
@@ -198,12 +208,14 @@ const setUpProductDetail = () => {
               <p class="buy-now-alert__size"><b>Size: </b>${sizeChosen}</p>
               <p class="buy-now-alert__price"><b>Đơn giá: </b>${formatCurrency(price)} VND</p>
               <p class="buy-now-alert__quantity"><b>Số lượng: </b>${quantity}</p>
-              <p class="buy-now-alert__total"><b class="fs-4">Thành tiền: </b>${formatCurrency(Number(price) * quantity)} VND</p>
+              <p class="buy-now-alert__total fs-3"><b>Thành tiền: </b>${formatCurrency(Number(price) * quantity)} VND</p>
             </div>
             <h3 class="buy-now-alert__callback">Chúng tôi sẽ liên hệ với bạn trong vòng 24h để xác nhận đơn hàng!</h3>
           </div>
         `,
         showCloseButton: true,
+        confirmButtonColor: "hsl(350, 88%, 68%)",
+        confirmButtonText: "Đóng",
       });
     }
   });
