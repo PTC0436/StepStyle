@@ -4,6 +4,10 @@ body {
   color: #1f2937;
 }
 
+main {
+  font-family: "Times New Roman", Times, serif;
+}
+
 /* ================= MODAL THÀNH CÔNG ================= */
 .modal {
   position: fixed;
