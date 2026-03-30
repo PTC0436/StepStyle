@@ -198,7 +198,7 @@ const setUpProductDetail = () => {
               <p class="buy-now-alert__size"><b>Size: </b>${sizeChosen}</p>
               <p class="buy-now-alert__price"><b>Đơn giá: </b>${formatCurrency(price)} VND</p>
               <p class="buy-now-alert__quantity"><b>Số lượng: </b>${quantity}</p>
-              <p class="buy-now-alert__total"><b>Thành tiền: </b>${formatCurrency(Number(price) * quantity)} VND</p>
+              <p class="buy-now-alert__total"><b class="fs-4">Thành tiền: </b>${formatCurrency(Number(price) * quantity)} VND</p>
             </div>
             <h3 class="buy-now-alert__callback">Chúng tôi sẽ liên hệ với bạn trong vòng 24h để xác nhận đơn hàng!</h3>
           </div>
