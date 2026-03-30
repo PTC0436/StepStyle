@@ -156,7 +156,7 @@ const setUpProductDetail = () => {
         Swal.fire({
           icon: "error",
           title: "Vui lòng chọn màu!",
-          timer: 2000,
+          timer: 3000,
           timerProgressBar: true,
           confirmButtonColor: "hsl(350, 88%, 68%)",
           confirmButtonText: "Đóng",
