@@ -14,7 +14,7 @@ import setUpUISearch from "./setUp/ui/setUpUISearch.js";
 import setUpUIProductDetail from "./setUp/ui/setUpUIProductDetail.js";
 
 import setUpConstraint from "./setUp/event/setUpConstraint.js";
-import setUpScrollTop from "/assets/js/scroll-top/scroll-top.js";
+import setUpScrollTop from "../../js/scroll-top/scroll-top.js";
 
 import pageNotFound404 from "./render/pageNotFound404.js";
 import setUpPagination from "./setUp/event/setUpPagination.js";
