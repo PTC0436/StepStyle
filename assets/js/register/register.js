@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    //Khi bấm vào thì hiện loading lên để người dùng không thể bấm lại
     const loading = document.querySelector(".btn-loading");
     loading?.classList.add("btn-loading--shown");
 
@@ -26,11 +27,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         timer: 3000,
         timerProgressBar: true,
       });
+
+      //Tắt loading
       loading?.classList.remove("btn-loading--shown");
       return;
     }
 
-    console.log(name, email, password, confirmPassword, address);
+    // console.log(name, email, password, confirmPassword, address);
 
     // Kiểm tra email hợp lệ
     if (!isValidEmail(email)) {
@@ -41,6 +44,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         timer: 3000,
         timerProgressBar: true,
       });
+
+      //Tắt loading
       loading?.classList.remove("btn-loading--shown");
       return;
     }
@@ -55,6 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         timer: 3000,
         timerProgressBar: true,
       });
+      //Tắt loading
       loading?.classList.remove("btn-loading--shown");
       return;
     }
@@ -73,6 +79,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     try {
+      //Call API
       const res = await api.post("/api/auth/register", {
         name,
         email,
@@ -89,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     } catch (err) {
       loading?.classList.remove("btn-loading--shown");
       if (err.message === "Email already exists") {
-        // alert("Email đã tồn tại");
+        //alert("Email đã tồn tại");
         Swal.fire({
           title: "Email đã tồn tại!",
           icon: "warning",
@@ -124,6 +131,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
+
+  //Password phải tối thiểu 8 ký tự, chứa ít nhất 1 chữ thường, 1 chữ hoa, 1 số và 1 ký tự đặc biệt
   function isValidPassword(password) {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;

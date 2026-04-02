@@ -5,13 +5,12 @@ const loginForm = document.querySelector("form");
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  //Khi bấm vào thì hiện loading lên để người dùng không thể bấm lại
   const loading = document.querySelector(".btn-loading");
   loading?.classList.add("btn-loading--shown");
 
   const email = document.getElementById("Email").value.trim();
   const password = document.getElementById("password").value;
-
-  console.log(email, password);
 
   if (!email || !password) {
     Swal.fire({
@@ -21,13 +20,17 @@ loginForm.addEventListener("submit", async (e) => {
       timer: 3000,
       timerProgressBar: true,
     });
+
+    //Tắt loading
     loading?.classList.remove("btn-loading--shown");
     return;
   }
 
   try {
+    //Call API
     const res = await api.post("/api/auth/login", { email, password });
 
+    //Lưu user
     saveAuth(res.user);
 
     Swal.fire({
